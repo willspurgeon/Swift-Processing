@@ -1,0 +1,56 @@
+//
+//  Enviroment.swift
+//  TestWindowApp
+//
+//  Created by Will Spurgeon on 6/18/16.
+//  Copyright © 2016 Will Spurgeon. All rights reserved.
+//
+
+import AppKit
+
+public class Enviroment{
+    enum ProgramMode {
+        case setup
+        case draw
+    }
+    
+    static var mode: ProgramMode = .setup
+    
+    public static var w = 1000
+    static var h = 500
+    
+    static var mouseX: Float = 0
+    static var mouseY: Float = 0
+    static var mouseIsPressed:Bool {
+        get{
+            guard mouseIsInView else{return false}
+            return NSEvent.pressedMouseButtons() != 0
+        }
+    }
+    
+    static var backgroundColor = NSColor.lightGrayColor()
+    static var stroke: NSColor? = NSColor.blackColor()
+    static var fill: NSColor? = NSColor.whiteColor()
+    static var strokeWeight: Double = 0
+    static var jointType: NSLineJoinStyle = .MiterLineJoinStyle
+    static var capType: NSLineCapStyle = .RoundLineCapStyle
+    
+    static var mouseLocation:NSPoint = NSPoint()
+    static var mouseIsInView: Bool = false
+    
+    static var listOfOps: [Drawable] = [Drawable]()
+    
+    static var listOfSetUpOps: [Drawable] = [Drawable]()
+    static var listOfDrawOps: [Drawable] = [Drawable]()
+    
+    //TODO: Set the timer to a new value once the setup function is called by the user.
+    static var frameRate:Double = 30.0
+    static var frameTime: Double {
+        get{
+            return 1.0/frameRate
+        }
+    }
+    static var frameCount = 0
+    
+    static var currentCursor = NSCursor.arrowCursor()
+}
