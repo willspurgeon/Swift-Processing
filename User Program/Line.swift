@@ -29,8 +29,8 @@ struct Line: Drawable, Hashable{
     
     func drawShape() {
         let bPath = NSBezierPath()
-        bPath.moveToPoint(NSPoint(x: x1, y: y1))
-        bPath.lineToPoint(NSPoint(x: x2, y: y2))
+        bPath.move(to: NSPoint(x: x1, y: y1))
+        bPath.line(to: NSPoint(x: x2, y: y2))
         bPath.lineJoinStyle = Enviroment.jointType
         bPath.lineCapStyle = Enviroment.capType
         
@@ -41,7 +41,7 @@ struct Line: Drawable, Hashable{
         }
     }
     
-    func isEqualTo(other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool{
         guard let other = other as? Line else { return false }
         return self.hashValue == other.hashValue
     }

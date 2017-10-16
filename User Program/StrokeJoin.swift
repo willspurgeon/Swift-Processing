@@ -20,12 +20,12 @@ struct StrokeJoin:Drawable, Hashable{
     
     init(jointType: JointType){
         switch jointType {
-        case .Bevel:
-            joint = .BevelLineJoinStyle
-        case .Miter:
-            joint = .MiterLineJoinStyle
-        case .Round:
-            joint = .RoundLineJoinStyle
+        case .bevel:
+            joint = .bevelLineJoinStyle
+        case .miter:
+            joint = .miterLineJoinStyle
+        case .round:
+            joint = .roundLineJoinStyle
         }
     }
     
@@ -33,7 +33,7 @@ struct StrokeJoin:Drawable, Hashable{
         Enviroment.jointType = joint
     }
     
-    func isEqualTo(other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool{
         guard let other = other as? StrokeJoin else { return false }
         return self.hashValue == other.hashValue
     }

@@ -20,7 +20,7 @@ struct NoFill:Drawable, Hashable{
         Enviroment.fill = nil
     }
     
-    func isEqualTo(other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool{
         guard let other = other as? NoFill else { return false }
         return self.hashValue == other.hashValue
     }

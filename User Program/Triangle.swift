@@ -34,11 +34,11 @@ struct Triangle: Drawable, Hashable {
     func drawShape() {
         let bPath = NSBezierPath()
         
-        bPath.moveToPoint(NSPoint(x: x1, y: y1))
-        bPath.lineToPoint(NSPoint(x: x2, y: y2))
-        bPath.lineToPoint(NSPoint(x: x3, y: y3))
+        bPath.move(to: NSPoint(x: x1, y: y1))
+        bPath.line(to: NSPoint(x: x2, y: y2))
+        bPath.line(to: NSPoint(x: x3, y: y3))
         
-        bPath.closePath()
+        bPath.close()
         
         bPath.lineJoinStyle = Enviroment.jointType
         bPath.lineCapStyle = Enviroment.capType
@@ -54,7 +54,7 @@ struct Triangle: Drawable, Hashable {
             bPath.fill()
         }
     }
-    func isEqualTo(other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool{
         guard let other = other as? Triangle else { return false }
         return self.hashValue == other.hashValue
     }

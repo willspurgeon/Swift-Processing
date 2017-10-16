@@ -31,7 +31,7 @@ struct Ellipse: Drawable, Hashable {
     }
     
     func drawShape(){
-        let bPath:NSBezierPath = NSBezierPath(ovalInRect: NSRect(x: x, y: y, width: w, height: h))
+        let bPath:NSBezierPath = NSBezierPath(ovalIn: NSRect(x: x, y: y, width: w, height: h))
         bPath.lineWidth = CGFloat(Enviroment.strokeWeight)
         bPath.lineJoinStyle = Enviroment.jointType
         bPath.lineCapStyle = Enviroment.capType
@@ -47,7 +47,7 @@ struct Ellipse: Drawable, Hashable {
         }
     }
     
-    func isEqualTo(other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool{
         guard let other = other as? Ellipse else { return false }
         return self.hashValue == other.hashValue
     }

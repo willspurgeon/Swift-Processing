@@ -38,12 +38,12 @@ struct Quad: Drawable, Hashable {
     func drawShape() {
         let bPath = NSBezierPath()
         
-        bPath.moveToPoint(NSPoint(x: x1, y: y1))
-        bPath.lineToPoint(NSPoint(x: x2, y: y2))
-        bPath.lineToPoint(NSPoint(x: x3, y: y3))
-        bPath.lineToPoint(NSPoint(x: x4, y: y4))
+        bPath.move(to: NSPoint(x: x1, y: y1))
+        bPath.line(to: NSPoint(x: x2, y: y2))
+        bPath.line(to: NSPoint(x: x3, y: y3))
+        bPath.line(to: NSPoint(x: x4, y: y4))
         
-        bPath.closePath()
+        bPath.close()
         
         bPath.lineJoinStyle = Enviroment.jointType
         bPath.lineCapStyle = Enviroment.capType
@@ -60,7 +60,7 @@ struct Quad: Drawable, Hashable {
         }
     }
     
-    func isEqualTo(other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool{
         guard let other = other as? Quad else { return false }
         return self.hashValue == other.hashValue
     }

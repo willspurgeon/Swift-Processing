@@ -34,7 +34,7 @@ struct Background: Drawable, Hashable{
         Enviroment.fill?.set()
     }
     
-    func isEqualTo(other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool{
         guard let other = other as? Background else { return false }
         return self.hashValue == other.hashValue
     }

@@ -9,21 +9,13 @@
 class MainProgram: UserProgram{
     
     func setup(){
-        //size(width: 1000, height: 500)
-        background(r: 100, g: 50, b: 100)
-
-        fill(r: 0, g: 0, b: 0)
-        cursor(.Cross)
+        size(width: 300, height: 300)
     }
-    
-    
     
     func draw(){
-        background(r: 255, g: 255, b: 255)
-        ellipse(x: Int(mouseX()), y: Int(mouseY()), w: 100, h: 100)
-    }
-    
-    func mouseMoved() {
-        Swift.print(day())
+        background(r: Double(mouseX()), g: Double(mouseY()), b: 255)
+        fill(r: 0, g: Double(mouseY()), b: Double(mouseX()))
+        triangle(x1: 100, y1: 100, x2: 200, y2: 100, x3: Double(mouseX()), y3: Double(mouseY()))
+        
     }
 }

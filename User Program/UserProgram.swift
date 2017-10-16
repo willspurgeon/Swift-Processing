@@ -27,7 +27,7 @@ extension UserProgram{
 
 import AppKit
 
-func addToCorrectOpList(op: Drawable){
+func addToCorrectOpList(_ op: Drawable){
     switch Enviroment.mode {
     case .setup:
         Enviroment.listOfSetUpOps.append(op)
@@ -36,48 +36,48 @@ func addToCorrectOpList(op: Drawable){
     }
 }
 
-func size(width width: Int, height: Int){
+func size(width: Int, height: Int){
     Enviroment.w = width
     Enviroment.h = height
 }
 
-func background(r r: Double, g: Double, b: Double){
+func background(r: Double, g: Double, b: Double){
     addToCorrectOpList(Background(r:r,g:g,b:b))
 }
 
-func ellipse(x x:Int, y: Int, w:Int, h: Int){
+func ellipse(x:Int, y: Int, w:Int, h: Int){
     addToCorrectOpList(Ellipse(x: x, y: y, w: w, h:h))
 }
 
-func fill(r r: Double, g: Double, b:Double){
+func fill(r: Double, g: Double, b:Double){
     addToCorrectOpList(Fill(r:r,g:g,b:b))
 }
 
-func stroke(r r: Double, g: Double, b:Double){
+func stroke(r: Double, g: Double, b:Double){
     addToCorrectOpList(Stroke(r:r,g:g,b:b))
 }
 
-func strokeWeight(weight: Double){
+func strokeWeight(_ weight: Double){
     addToCorrectOpList(StrokeWeight(weight: weight))
 }
 
-func rectangle(x x:Int, y: Int, w:Int, h: Int){
+func rectangle(x:Int, y: Int, w:Int, h: Int){
     addToCorrectOpList(Rectangle(x: x, y: y, w: w, h:h))
 }
 
-func line(x1 x1:Double, y1: Double, x2:Double, y2: Double){
+func line(x1:Double, y1: Double, x2:Double, y2: Double){
     addToCorrectOpList(Line(x1: x1, y1: y1, x2: x2, y2: y2))
 }
 
-func point(x x:Double, y: Double) {
+func point(x:Double, y: Double) {
     addToCorrectOpList(Point(x: x, y: y))
 }
 
-func quad(x1 x1:Double, y1:Double, x2:Double, y2:Double, x3:Double, y3:Double, x4:Double, y4:Double){
+func quad(x1:Double, y1:Double, x2:Double, y2:Double, x3:Double, y3:Double, x4:Double, y4:Double){
     addToCorrectOpList(Quad(x1: x1, y1: y1, x2: x2, y2: y2, x3: x3, y3: y3, x4: x4, y4: y4))
 }
 
-func frameRate(fps fps: Double){
+func frameRate(fps: Double){
     Enviroment.frameRate = fps
 }
 
@@ -89,20 +89,20 @@ func noFill(){
     addToCorrectOpList(NoFill())
 }
 
-func triangle(x1 x1:Double, y1:Double, x2:Double, y2:Double, x3:Double, y3:Double){
+func triangle(x1:Double, y1:Double, x2:Double, y2:Double, x3:Double, y3:Double){
     addToCorrectOpList(Triangle(x1: x1, y1: y1, x2: x2, y2: y2, x3: x3, y3: y3))
 }
 
 enum JointType{
-    case Miter,Bevel,Round
+    case miter,bevel,round
 }
 
-func strokeJoin(joint joint: JointType){
+func strokeJoin(joint: JointType){
     addToCorrectOpList(StrokeJoin(jointType: joint))
 }
 
 enum StrokeCapType {
-    case Square,Project,Round
+    case square,project,round
 }
 
 func strokeCap(capType cap: StrokeCapType){
@@ -126,45 +126,45 @@ func frameCount() -> Int{
 }
 
 func day() -> Int{
-    let today = NSDate()
-    let formatter = NSDateFormatter()
+    let today = Date()
+    let formatter = DateFormatter()
     formatter.dateFormat = "dd"
-    return Int(formatter.stringFromDate(today))!
+    return Int(formatter.string(from: today))!
 }
 
 func hour() -> Int{
-    let today = NSDate()
-    let formatter = NSDateFormatter()
+    let today = Date()
+    let formatter = DateFormatter()
     formatter.dateFormat = "HH"
-    return Int(formatter.stringFromDate(today))!
+    return Int(formatter.string(from: today))!
 }
 
 func minute() -> Int{
-    let today = NSDate()
-    let formatter = NSDateFormatter()
+    let today = Date()
+    let formatter = DateFormatter()
     formatter.dateFormat = "mm"
-    return Int(formatter.stringFromDate(today))!
+    return Int(formatter.string(from: today))!
 }
 
 func second() -> Int{
-    let today = NSDate()
-    let formatter = NSDateFormatter()
+    let today = Date()
+    let formatter = DateFormatter()
     formatter.dateFormat = "ss"
-    return Int(formatter.stringFromDate(today))!
+    return Int(formatter.string(from: today))!
 }
 
 func year() -> Int{
-    let today = NSDate()
-    let formatter = NSDateFormatter()
+    let today = Date()
+    let formatter = DateFormatter()
     formatter.dateFormat = "yyyy"
-    return Int(formatter.stringFromDate(today))!
+    return Int(formatter.string(from: today))!
 }
 
 func month() -> Int{
-    let today = NSDate()
-    let formatter = NSDateFormatter()
+    let today = Date()
+    let formatter = DateFormatter()
     formatter.dateFormat = "MM"
-    return Int(formatter.stringFromDate(today))!
+    return Int(formatter.string(from: today))!
 }
 
 func millisecond() -> Int{
@@ -173,23 +173,23 @@ func millisecond() -> Int{
 }
 
 enum CursorKind{
-    case Arrow, Cross, Hand, Move, Text
+    case arrow, cross, hand, move, text
 }
 
-func cursor(kind: CursorKind){
+func cursor(_ kind: CursorKind){
     //TODO: Add a Wait cursor.
     switch kind {
-    case .Arrow:
-        Enviroment.currentCursor = NSCursor.arrowCursor()
-    case .Cross:
-        Enviroment.currentCursor = NSCursor.crosshairCursor()
-    case .Hand:
-        Enviroment.currentCursor = NSCursor.openHandCursor()
-    case .Move:
+    case .arrow:
+        Enviroment.currentCursor = NSCursor.arrow()
+    case .cross:
+        Enviroment.currentCursor = NSCursor.crosshair()
+    case .hand:
+        Enviroment.currentCursor = NSCursor.openHand()
+    case .move:
         //TODO: What is the move cursor supposed to look like?
-        Enviroment.currentCursor = NSCursor.openHandCursor()
-    case .Text:
-        Enviroment.currentCursor = NSCursor.IBeamCursor()
+        Enviroment.currentCursor = NSCursor.openHand()
+    case .text:
+        Enviroment.currentCursor = NSCursor.iBeam()
     }
     
 }
@@ -219,7 +219,7 @@ struct Vector{
         }
     }
     
-    func distanceTo(vect: Vector)->Double{
+    func distanceTo(_ vect: Vector)->Double{
         return sqrt(pow(vect.x-x, 2)+pow(vect.y-y, 2)+pow(vect.z-z, 2))
     }
     
@@ -231,7 +231,7 @@ struct Vector{
         return self
     }
     
-    mutating func setMagnitude(mag: Double) -> Vector{
+    mutating func setMagnitude(_ mag: Double) -> Vector{
         self.normalize()
         self *= mag
         return self
@@ -251,18 +251,18 @@ func - (left: Vector, right: Vector) -> Vector{
     return Vector(x: left.x-right.x, y: left.y-right.y, z: left.z-right.z)
 }
 
-func += (inout left: Vector, right: Vector){
+func += (left: inout Vector, right: Vector){
     left = left+right
 }
 
-func -= (inout left: Vector, right: Vector){
+func -= (left: inout Vector, right: Vector){
     left = left+right
 }
 
-func *= (inout left: Vector, right: Double){
+func *= (left: inout Vector, right: Double){
     left = Vector(x: left.x*right, y: left.y*right, z: left.z*right)
 }
 
-func /= (inout left: Vector, right: Double){
+func /= (left: inout Vector, right: Double){
     left = Vector(x: left.x/right, y: left.y/right, z: left.z/right)
 }

@@ -20,12 +20,12 @@ struct StrokeCap:Drawable, Hashable{
     
     init(capType: StrokeCapType){
         switch capType {
-        case .Project:
-            cap = .ButtLineCapStyle
-        case .Round:
-            cap = .RoundLineCapStyle
-        case .Square:
-            cap = .SquareLineCapStyle
+        case .project:
+            cap = .buttLineCapStyle
+        case .round:
+            cap = .roundLineCapStyle
+        case .square:
+            cap = .squareLineCapStyle
         }
     }
     
@@ -33,7 +33,7 @@ struct StrokeCap:Drawable, Hashable{
         Enviroment.capType = cap
     }
     
-    func isEqualTo(other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool{
         guard let other = other as? StrokeCap else { return false }
         return self.hashValue == other.hashValue
     }

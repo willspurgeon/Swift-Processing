@@ -32,7 +32,7 @@ struct Fill:Drawable, Hashable{
         fillColor.set()
     }
     
-    func isEqualTo(other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool{
         guard let other = other as? Fill else { return false }
         return self.hashValue == other.hashValue
     }

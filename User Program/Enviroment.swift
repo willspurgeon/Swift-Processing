@@ -8,7 +8,7 @@
 
 import AppKit
 
-public class Enviroment{
+open class Enviroment{
     enum ProgramMode {
         case setup
         case draw
@@ -16,7 +16,7 @@ public class Enviroment{
     
     static var mode: ProgramMode = .setup
     
-    public static var w = 1000
+    open static var w = 1000
     static var h = 500
     
     static var mouseX: Float = 0
@@ -28,12 +28,12 @@ public class Enviroment{
         }
     }
     
-    static var backgroundColor = NSColor.lightGrayColor()
-    static var stroke: NSColor? = NSColor.blackColor()
-    static var fill: NSColor? = NSColor.whiteColor()
+    static var backgroundColor = NSColor.lightGray
+    static var stroke: NSColor? = NSColor.black
+    static var fill: NSColor? = NSColor.white
     static var strokeWeight: Double = 0
-    static var jointType: NSLineJoinStyle = .MiterLineJoinStyle
-    static var capType: NSLineCapStyle = .RoundLineCapStyle
+    static var jointType: NSLineJoinStyle = .miterLineJoinStyle
+    static var capType: NSLineCapStyle = .roundLineCapStyle
     
     static var mouseLocation:NSPoint = NSPoint()
     static var mouseIsInView: Bool = false
@@ -52,5 +52,5 @@ public class Enviroment{
     }
     static var frameCount = 0
     
-    static var currentCursor = NSCursor.arrowCursor()
+    static var currentCursor = NSCursor.arrow()
 }

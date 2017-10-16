@@ -13,7 +13,7 @@ class ContainerView: NSView{
     let program = MainProgram()
     let mainImageView: NSImageView
     var oldDrawQueue: [Drawable]! = nil
-    let defaultCursor = NSCursor.arrowCursor()
+    let defaultCursor = NSCursor.arrow()
     
     override init(frame frameRect: NSRect) {
         mainImageView = NSImageView(frame: frameRect)
@@ -27,32 +27,32 @@ class ContainerView: NSView{
         commonSetup()
     }
     
-    override func mouseMoved(theEvent: NSEvent) {
+    override func mouseMoved(with theEvent: NSEvent) {
         Enviroment.mouseX = Float(theEvent.locationInWindow.x)
         Enviroment.mouseY = Float(theEvent.locationInWindow.y)
         program.mouseMoved()
     }
     
-    override func mouseEntered(theEvent: NSEvent) {
+    override func mouseEntered(with theEvent: NSEvent) {
         Enviroment.mouseIsInView = true
         Enviroment.currentCursor.set()
     }
     
-    override func mouseExited(theEvent: NSEvent) {
+    override func mouseExited(with theEvent: NSEvent) {
         Enviroment.mouseIsInView = false
         defaultCursor.set()
         
     }
     
-    override func mouseDragged(theEvent: NSEvent) {
+    override func mouseDragged(with theEvent: NSEvent) {
         program.mouseDragged()
     }
     
-    override func mouseUp(theEvent: NSEvent) {
+    override func mouseUp(with theEvent: NSEvent) {
         program.mouseReleased()
     }
     
-    override func mouseDown(theEvent: NSEvent) {
+    override func mouseDown(with theEvent: NSEvent) {
         program.mousePressed()
     }
     
@@ -61,17 +61,17 @@ class ContainerView: NSView{
         self.addSubview(mainImageView)
         
         //TODO: Currently does not allow update mouse location when dragging.
-        let trackingArea = NSTrackingArea(rect: self.bounds, options: [.ActiveAlways , .MouseMoved, .MouseEnteredAndExited,.InVisibleRect], owner: self, userInfo: nil)
+        let trackingArea = NSTrackingArea(rect: self.bounds, options: [.activeAlways , .mouseMoved, .mouseEnteredAndExited,.inVisibleRect], owner: self, userInfo: nil)
         trackingArea
         self.addTrackingArea(trackingArea)
         
-        NSTimer.scheduledTimerWithTimeInterval(Enviroment.frameTime, target: self, selector: #selector(updateViews), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: Enviroment.frameTime, target: self, selector: #selector(updateViews), userInfo: nil, repeats: true)
     }
     
-    func drawableArraysAreEqual(lhs: [Drawable], _ rhs: [Drawable])->Bool{
+    func drawableArraysAreEqual(_ lhs: [Drawable], _ rhs: [Drawable])->Bool{
         guard lhs.count == rhs.count else {return false}
         
-        for (index, element) in lhs.enumerate(){
+        for (index, element) in lhs.enumerated(){
             if !element.isEqualTo(rhs[index]){
                 return false
             }
@@ -97,7 +97,7 @@ class ContainerView: NSView{
         
         if Enviroment.mode == .setup{
             mainImageView.image?.lockFocus()
-            let currentContext = NSGraphicsContext.currentContext()
+            let currentContext = NSGraphicsContext.current()
             currentContext?.shouldAntialias = false
             
             //Set default background color
@@ -112,12 +112,12 @@ class ContainerView: NSView{
             
             mainImageView.image?.unlockFocus()
             mainImageView.setNeedsDisplay()
-            NSApp.activateIgnoringOtherApps(true)
+            NSApp.activate(ignoringOtherApps: true)
         }else{
             let newDrawQueue = Enviroment.listOfDrawOps
             if !drawableArraysAreEqual(newDrawQueue, oldDrawQueue) {
                 mainImageView.image?.lockFocus()
-                let currentContext = NSGraphicsContext.currentContext()
+                let currentContext = NSGraphicsContext.current()
                 currentContext?.shouldAntialias = false
                 
                 for op in Enviroment.listOfDrawOps{

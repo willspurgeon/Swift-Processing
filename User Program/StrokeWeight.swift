@@ -27,7 +27,7 @@ struct StrokeWeight:Drawable, Hashable{
         
     }
     
-    func isEqualTo(other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool{
         guard let other = other as? StrokeWeight else { return false }
         return self.hashValue == other.hashValue
     }

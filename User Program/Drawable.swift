@@ -8,5 +8,5 @@
 
 protocol Drawable {
     func drawShape()
-    func isEqualTo(other: Any) -> Bool
+    func isEqualTo(_ other: Any) -> Bool
 }

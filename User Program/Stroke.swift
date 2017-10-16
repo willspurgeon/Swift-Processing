@@ -30,7 +30,7 @@ struct Stroke:Drawable, Hashable{
         //Don't bother setting the stroke here. It won't work.
     }
     
-    func isEqualTo(other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool{
         guard let other = other as? Stroke else { return false }
         return self.hashValue == other.hashValue
     }

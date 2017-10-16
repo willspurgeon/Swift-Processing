@@ -34,7 +34,7 @@ struct Point: Drawable, Hashable{
             bPath.stroke()
         }
     }
-    func isEqualTo(other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool{
         guard let other = other as? Point else { return false }
         return self.hashValue == other.hashValue
     }
