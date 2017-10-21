@@ -203,13 +203,14 @@ public func cursor(_ kind: CursorKind) {
     }
 }
 
-public struct Vector {
-    var x = 0.0
-    var y = 0.0
-    var z = 0.0
+public struct Vector: Equatable {
+    public var x = 0.0
+    public var y = 0.0
+    public var z = 0.0
+    
+    public static let zero = Vector(x: 0, y: 0, z: 0)
     
     //TODO: Create all remaining forms of operator overloads.
-    
     public init(x: Double, y: Double, z: Double) {
         self.x = x
         self.y = y
@@ -217,14 +218,16 @@ public struct Vector {
     }
     
     public var magnitude: Double {
-        get{
-            return sqrt((x*x)+(y*y)+(z*z))
-        }
+        return sqrt((x * x) + (y * y) + (z * z))
+    }
+    
+    public var isZero: Bool {
+        return x == 0 && y == 0 && z == 0
     }
     
     public var magnitudeSquared: Double {
-        get{
-            return (x*x)+(y*y)+(z*z)
+        get {
+            return (x * x) + (y * y) + (z * z)
         }
     }
     
@@ -245,32 +248,40 @@ public struct Vector {
         self *= mag
         return self
     }
-}
-
-public func == (left: Vector, right: Vector) -> Bool {
-    return left.x == right.x && left.y == right.y && left.z == right.z
-}
-
-public func + (left: Vector, right: Vector) -> Vector {
-    return Vector(x: left.x + right.x, y: left.y + right.y, z: left.z + right.z)
-}
-
-public func - (left: Vector, right: Vector) -> Vector {
-    return Vector(x: left.x - right.x, y: left.y - right.y, z: left.z - right.z)
-}
-
-public func += (left: inout Vector, right: Vector) {
-    left = left + right
-}
-
-public func -= (left: inout Vector, right: Vector) {
-    left = left + right
-}
-
-public func *= (left: inout Vector, right: Double) {
-    left = Vector(x: left.x * right, y: left.y * right, z: left.z * right)
-}
-
-public func /= (left: inout Vector, right: Double) {
-    left = Vector(x: left.x / right, y: left.y / right, z: left.z / right)
+    
+    public static func += (left: inout Vector, right: Vector) {
+        left = left + right
+    }
+    
+    public static func == (left: Vector, right: Vector) -> Bool {
+        return left.x == right.x && left.y == right.y && left.z == right.z
+    }
+    
+    public static func + (left: Vector, right: Vector) -> Vector {
+        return Vector(x: left.x + right.x, y: left.y + right.y, z: left.z + right.z)
+    }
+    
+    public static func - (left: Vector, right: Vector) -> Vector {
+        return Vector(x: left.x - right.x, y: left.y - right.y, z: left.z - right.z)
+    }
+    
+    public static func * (left: Vector, right: Double) -> Vector {
+        return Vector(x: left.x * right, y: left.y * right, z: left.z * right)
+    }
+    
+    public static func * (left: Double, right: Vector) -> Vector {
+        return right * left
+    }
+    
+    public static func -= (left: inout Vector, right: Vector) {
+        left = left - right
+    }
+    
+    public static func *= (left: inout Vector, right: Double) {
+        left = Vector(x: left.x * right, y: left.y * right, z: left.z * right)
+    }
+    
+    public static func /= (left: inout Vector, right: Double) {
+        left = Vector(x: left.x / right, y: left.y / right, z: left.z / right)
+    }
 }

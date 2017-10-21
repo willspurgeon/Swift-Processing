@@ -30,6 +30,7 @@
 		BE69A9DD1F9BF110005BABC2 /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA981D2B2E3200D09466 /* Drawable.swift */; };
 		BE69A9DE1F9BF110005BABC2 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9A1D2B2E3200D09466 /* Enviroment.swift */; };
 		BE69A9DF1F9BF110005BABC2 /* Fill.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9B1D2B2E3200D09466 /* Fill.swift */; };
+		BE69A9E11F9BFCE3005BABC2 /* VectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69A9E01F9BFCE3005BABC2 /* VectorTests.swift */; };
 		BEC7EA8A1D2B2DFA00D09466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC7EA891D2B2DFA00D09466 /* Assets.xcassets */; };
 		BEC7EA8D1D2B2DFA00D09466 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEC7EA8B1D2B2DFA00D09466 /* MainMenu.xib */; };
 		BEC7EA951D2B2E1D00D09466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA941D2B2E1D00D09466 /* AppDelegate.swift */; };
@@ -81,6 +82,7 @@
 		BE69A9B81F9BF0E3005BABC2 /* ProcessingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProcessingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE69A9BF1F9BF0E4005BABC2 /* ProcessingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingTests.swift; sourceTree = "<group>"; };
 		BE69A9C11F9BF0E4005BABC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE69A9E01F9BFCE3005BABC2 /* VectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorTests.swift; sourceTree = "<group>"; };
 		BEC7EA841D2B2DFA00D09466 /* User Program.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "User Program.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC7EA891D2B2DFA00D09466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEC7EA8C1D2B2DFA00D09466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				BE69A9BF1F9BF0E4005BABC2 /* ProcessingTests.swift */,
+				BE69A9E01F9BFCE3005BABC2 /* VectorTests.swift */,
 				BE69A9C11F9BF0E4005BABC2 /* Info.plist */,
 			);
 			path = ProcessingTests;
@@ -284,13 +287,13 @@
 				TargetAttributes = {
 					BE69A9AF1F9BF0E3005BABC2 = {
 						CreatedOnToolsVersion = 9.0.1;
+						DevelopmentTeam = 4B94WS5722;
 						ProvisioningStyle = Automatic;
 					};
 					BE69A9B71F9BF0E3005BABC2 = {
 						CreatedOnToolsVersion = 9.0.1;
 						DevelopmentTeam = 4B94WS5722;
 						ProvisioningStyle = Automatic;
-						TestTargetID = BEC7EA831D2B2DFA00D09466;
 					};
 					BEC7EA831D2B2DFA00D09466 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -374,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE69A9E11F9BFCE3005BABC2 /* VectorTests.swift in Sources */,
 				BE69A9C01F9BF0E4005BABC2 /* ProcessingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,11 +430,12 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4B94WS5722;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -462,6 +467,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4B94WS5722;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -500,7 +506,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/User Program.app/Contents/MacOS/User Program";
 			};
 			name = Debug;
 		};
@@ -523,7 +528,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.spurgeonworld.ProcessingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/User Program.app/Contents/MacOS/User Program";
 			};
 			name = Release;
 		};
