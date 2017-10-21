@@ -43,6 +43,72 @@ public func size(width: Int, height: Int) {
     Enviroment.h = height
 }
 
+public var width: Int { return Enviroment.w }
+
+public var height: Int { return Enviroment.h }
+
+public func random() -> Double {
+    return Double(arc4random()) / Double(RAND_MAX)
+}
+
+public func cos(_ x: Double) -> Double {
+    return Darwin.cos(x)
+}
+
+public func sin(_ x: Double) -> Double {
+    return Darwin.sin(x)
+}
+
+public func tan(_ x: Double) -> Double {
+    return Darwin.tan(x)
+}
+
+public func acos(_ x: Double) -> Double {
+    return Darwin.acos(x)
+}
+
+public func asin(_ x: Double) -> Double {
+    return Darwin.asin(x)
+}
+
+public func atan(_ x: Double) -> Double {
+    return Darwin.atan(x)
+}
+
+public func atan2(_ y:Double, x: Double) -> Double {
+    return Darwin.atan2(y, x)
+}
+
+public func floor(_ x: Double) -> Int {
+    return Int(Darwin.floor(x))
+}
+
+public func ceiling(_ x: Double) -> Int {
+    return Int(Darwin.ceil(x))
+}
+
+func constrain<T: Comparable>(_ x: T, low: T, high: T) -> T{
+    if x < low {
+        return low
+    } else if x > high {
+        return high
+    } else {
+        return x
+    }
+}
+
+let e = Darwin.M_E
+let pi = Darwin.M_PI
+let tau = Darwin.M_PI * 2
+
+func squareRoot(_ x: Double) -> Double {
+    return Darwin.sqrt(x)
+}
+
+func random(_ upperLimit: Double = 1.0)->Double{
+    return (Double(arc4random())/Double(RAND_MAX))*upperLimit
+}
+
 public func background(r: Double, g: Double, b: Double) {
     addToCorrectOpList(Background(r: r,g: g,b: b))
 }
@@ -235,6 +301,7 @@ public struct Vector: Equatable {
         return sqrt(pow(vect.x - x, 2) + pow(vect.y - y, 2) + pow(vect.z - z, 2))
     }
     
+    @discardableResult
     public mutating func normalize() -> Vector {
         let mag = magnitude
         x = x/mag
@@ -243,9 +310,19 @@ public struct Vector: Equatable {
         return self
     }
     
+    @discardableResult
     public mutating func setMagnitude(_ mag: Double) -> Vector {
         self = self.normalize()
         self *= mag
+        return self
+    }
+    
+    @discardableResult
+    mutating func limit(_ limit: Double) -> Vector{
+        if magnitudeSquared > limit * limit{
+            normalize()
+            self *= limit
+        }
         return self
     }
     
