@@ -7,38 +7,87 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE69A9B91F9BF0E4005BABC2 /* Processing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE69A9B01F9BF0E3005BABC2 /* Processing.framework */; };
+		BE69A9C01F9BF0E4005BABC2 /* ProcessingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69A9BF1F9BF0E4005BABC2 /* ProcessingTests.swift */; };
+		BE69A9C21F9BF0E4005BABC2 /* Processing.h in Headers */ = {isa = PBXBuildFile; fileRef = BE69A9B21F9BF0E3005BABC2 /* Processing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE69A9C51F9BF0E4005BABC2 /* Processing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE69A9B01F9BF0E3005BABC2 /* Processing.framework */; };
+		BE69A9C61F9BF0E4005BABC2 /* Processing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE69A9B01F9BF0E3005BABC2 /* Processing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE69A9CE1F9BF107005BABC2 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA71D2B2E3200D09466 /* Triangle.swift */; };
+		BE69A9CF1F9BF107005BABC2 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA01D2B2E3200D09466 /* Point.swift */; };
+		BE69A9D01F9BF107005BABC2 /* Quad.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA11D2B2E3200D09466 /* Quad.swift */; };
+		BE69A9D11F9BF107005BABC2 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA31D2B2E3200D09466 /* Stroke.swift */; };
+		BE69A9D21F9BF107005BABC2 /* NoFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9E1D2B2E3200D09466 /* NoFill.swift */; };
+		BE69A9D31F9BF107005BABC2 /* StrokeJoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA51D2B2E3200D09466 /* StrokeJoin.swift */; };
+		BE69A9D41F9BF107005BABC2 /* StrokeWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA61D2B2E3200D09466 /* StrokeWeight.swift */; };
+		BE69A9D51F9BF107005BABC2 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA21D2B2E3200D09466 /* Rectangle.swift */; };
+		BE69A9D61F9BF107005BABC2 /* UserProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA81D2B2E3200D09466 /* UserProgram.swift */; };
+		BE69A9D71F9BF107005BABC2 /* NoStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9F1D2B2E3200D09466 /* NoStroke.swift */; };
+		BE69A9D81F9BF107005BABC2 /* StrokeCap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA41D2B2E3200D09466 /* StrokeCap.swift */; };
+		BE69A9D91F9BF110005BABC2 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA961D2B2E3200D09466 /* Background.swift */; };
+		BE69A9DA1F9BF110005BABC2 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9C1D2B2E3200D09466 /* Line.swift */; };
+		BE69A9DB1F9BF110005BABC2 /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA991D2B2E3200D09466 /* Ellipse.swift */; };
+		BE69A9DC1F9BF110005BABC2 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA971D2B2E3200D09466 /* ProcessingView.swift */; };
+		BE69A9DD1F9BF110005BABC2 /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA981D2B2E3200D09466 /* Drawable.swift */; };
+		BE69A9DE1F9BF110005BABC2 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9A1D2B2E3200D09466 /* Enviroment.swift */; };
+		BE69A9DF1F9BF110005BABC2 /* Fill.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9B1D2B2E3200D09466 /* Fill.swift */; };
 		BEC7EA8A1D2B2DFA00D09466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC7EA891D2B2DFA00D09466 /* Assets.xcassets */; };
 		BEC7EA8D1D2B2DFA00D09466 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEC7EA8B1D2B2DFA00D09466 /* MainMenu.xib */; };
 		BEC7EA951D2B2E1D00D09466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA941D2B2E1D00D09466 /* AppDelegate.swift */; };
-		BEC7EAA91D2B2E3200D09466 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA961D2B2E3200D09466 /* Background.swift */; };
-		BEC7EAAA1D2B2E3200D09466 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA971D2B2E3200D09466 /* ContainerView.swift */; };
-		BEC7EAAB1D2B2E3200D09466 /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA981D2B2E3200D09466 /* Drawable.swift */; };
-		BEC7EAAC1D2B2E3200D09466 /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA991D2B2E3200D09466 /* Ellipse.swift */; };
-		BEC7EAAD1D2B2E3200D09466 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9A1D2B2E3200D09466 /* Enviroment.swift */; };
-		BEC7EAAE1D2B2E3200D09466 /* Fill.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9B1D2B2E3200D09466 /* Fill.swift */; };
-		BEC7EAAF1D2B2E3200D09466 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9C1D2B2E3200D09466 /* Line.swift */; };
 		BEC7EAB01D2B2E3200D09466 /* MainProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9D1D2B2E3200D09466 /* MainProgram.swift */; };
-		BEC7EAB11D2B2E3200D09466 /* NoFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9E1D2B2E3200D09466 /* NoFill.swift */; };
-		BEC7EAB21D2B2E3200D09466 /* NoStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9F1D2B2E3200D09466 /* NoStroke.swift */; };
-		BEC7EAB31D2B2E3200D09466 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA01D2B2E3200D09466 /* Point.swift */; };
-		BEC7EAB41D2B2E3200D09466 /* Quad.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA11D2B2E3200D09466 /* Quad.swift */; };
-		BEC7EAB51D2B2E3200D09466 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA21D2B2E3200D09466 /* Rectangle.swift */; };
-		BEC7EAB61D2B2E3200D09466 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA31D2B2E3200D09466 /* Stroke.swift */; };
-		BEC7EAB71D2B2E3200D09466 /* StrokeCap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA41D2B2E3200D09466 /* StrokeCap.swift */; };
-		BEC7EAB81D2B2E3200D09466 /* StrokeJoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA51D2B2E3200D09466 /* StrokeJoin.swift */; };
-		BEC7EAB91D2B2E3200D09466 /* StrokeWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA61D2B2E3200D09466 /* StrokeWeight.swift */; };
-		BEC7EABA1D2B2E3200D09466 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA71D2B2E3200D09466 /* Triangle.swift */; };
-		BEC7EABB1D2B2E3200D09466 /* UserProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA81D2B2E3200D09466 /* UserProgram.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BE69A9BA1F9BF0E4005BABC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEC7EA7C1D2B2DFA00D09466 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE69A9AF1F9BF0E3005BABC2;
+			remoteInfo = Processing;
+		};
+		BE69A9BC1F9BF0E4005BABC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEC7EA7C1D2B2DFA00D09466 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEC7EA831D2B2DFA00D09466;
+			remoteInfo = "User Program";
+		};
+		BE69A9C31F9BF0E4005BABC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEC7EA7C1D2B2DFA00D09466 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE69A9AF1F9BF0E3005BABC2;
+			remoteInfo = Processing;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BE69A9CC1F9BF0E4005BABC2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BE69A9C61F9BF0E4005BABC2 /* Processing.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		BE69A9B01F9BF0E3005BABC2 /* Processing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Processing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE69A9B21F9BF0E3005BABC2 /* Processing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Processing.h; sourceTree = "<group>"; };
+		BE69A9B31F9BF0E3005BABC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE69A9B81F9BF0E3005BABC2 /* ProcessingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProcessingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE69A9BF1F9BF0E4005BABC2 /* ProcessingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingTests.swift; sourceTree = "<group>"; };
+		BE69A9C11F9BF0E4005BABC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEC7EA841D2B2DFA00D09466 /* User Program.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "User Program.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC7EA891D2B2DFA00D09466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEC7EA8C1D2B2DFA00D09466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		BEC7EA8E1D2B2DFA00D09466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEC7EA941D2B2E1D00D09466 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEC7EA961D2B2E3200D09466 /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
-		BEC7EA971D2B2E3200D09466 /* ContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		BEC7EA971D2B2E3200D09466 /* ProcessingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
 		BEC7EA981D2B2E3200D09466 /* Drawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
 		BEC7EA991D2B2E3200D09466 /* Ellipse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ellipse.swift; sourceTree = "<group>"; };
 		BEC7EA9A1D2B2E3200D09466 /* Enviroment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
@@ -59,44 +108,42 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BEC7EA811D2B2DFA00D09466 /* Frameworks */ = {
+		BE69A9AC1F9BF0E3005BABC2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE69A9B51F9BF0E3005BABC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE69A9B91F9BF0E4005BABC2 /* Processing.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEC7EA811D2B2DFA00D09466 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE69A9C51F9BF0E4005BABC2 /* Processing.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BEC7EA7B1D2B2DFA00D09466 = {
+		BE69A9B11F9BF0E3005BABC2 /* Processing */ = {
 			isa = PBXGroup;
 			children = (
-				BEC7EA861D2B2DFA00D09466 /* User Program */,
-				BEC7EA851D2B2DFA00D09466 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		BEC7EA851D2B2DFA00D09466 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BEC7EA841D2B2DFA00D09466 /* User Program.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		BEC7EA861D2B2DFA00D09466 /* User Program */ = {
-			isa = PBXGroup;
-			children = (
-				BEC7EA941D2B2E1D00D09466 /* AppDelegate.swift */,
 				BEC7EA961D2B2E3200D09466 /* Background.swift */,
-				BEC7EA971D2B2E3200D09466 /* ContainerView.swift */,
+				BEC7EA971D2B2E3200D09466 /* ProcessingView.swift */,
 				BEC7EA981D2B2E3200D09466 /* Drawable.swift */,
 				BEC7EA991D2B2E3200D09466 /* Ellipse.swift */,
 				BEC7EA9A1D2B2E3200D09466 /* Enviroment.swift */,
 				BEC7EA9B1D2B2E3200D09466 /* Fill.swift */,
 				BEC7EA9C1D2B2E3200D09466 /* Line.swift */,
-				BEC7EA9D1D2B2E3200D09466 /* MainProgram.swift */,
 				BEC7EA9E1D2B2E3200D09466 /* NoFill.swift */,
 				BEC7EA9F1D2B2E3200D09466 /* NoStroke.swift */,
 				BEC7EAA01D2B2E3200D09466 /* Point.swift */,
@@ -108,6 +155,46 @@
 				BEC7EAA61D2B2E3200D09466 /* StrokeWeight.swift */,
 				BEC7EAA71D2B2E3200D09466 /* Triangle.swift */,
 				BEC7EAA81D2B2E3200D09466 /* UserProgram.swift */,
+				BE69A9B21F9BF0E3005BABC2 /* Processing.h */,
+				BE69A9B31F9BF0E3005BABC2 /* Info.plist */,
+			);
+			path = Processing;
+			sourceTree = "<group>";
+		};
+		BE69A9BE1F9BF0E4005BABC2 /* ProcessingTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE69A9BF1F9BF0E4005BABC2 /* ProcessingTests.swift */,
+				BE69A9C11F9BF0E4005BABC2 /* Info.plist */,
+			);
+			path = ProcessingTests;
+			sourceTree = "<group>";
+		};
+		BEC7EA7B1D2B2DFA00D09466 = {
+			isa = PBXGroup;
+			children = (
+				BEC7EA861D2B2DFA00D09466 /* User Program */,
+				BE69A9B11F9BF0E3005BABC2 /* Processing */,
+				BE69A9BE1F9BF0E4005BABC2 /* ProcessingTests */,
+				BEC7EA851D2B2DFA00D09466 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BEC7EA851D2B2DFA00D09466 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEC7EA841D2B2DFA00D09466 /* User Program.app */,
+				BE69A9B01F9BF0E3005BABC2 /* Processing.framework */,
+				BE69A9B81F9BF0E3005BABC2 /* ProcessingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BEC7EA861D2B2DFA00D09466 /* User Program */ = {
+			isa = PBXGroup;
+			children = (
+				BEC7EA941D2B2E1D00D09466 /* AppDelegate.swift */,
+				BEC7EA9D1D2B2E3200D09466 /* MainProgram.swift */,
 				BEC7EA891D2B2DFA00D09466 /* Assets.xcassets */,
 				BEC7EA8B1D2B2DFA00D09466 /* MainMenu.xib */,
 				BEC7EA8E1D2B2DFA00D09466 /* Info.plist */,
@@ -117,7 +204,55 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		BE69A9AD1F9BF0E3005BABC2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE69A9C21F9BF0E4005BABC2 /* Processing.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		BE69A9AF1F9BF0E3005BABC2 /* Processing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE69A9CB1F9BF0E4005BABC2 /* Build configuration list for PBXNativeTarget "Processing" */;
+			buildPhases = (
+				BE69A9AB1F9BF0E3005BABC2 /* Sources */,
+				BE69A9AC1F9BF0E3005BABC2 /* Frameworks */,
+				BE69A9AD1F9BF0E3005BABC2 /* Headers */,
+				BE69A9AE1F9BF0E3005BABC2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Processing;
+			productName = Processing;
+			productReference = BE69A9B01F9BF0E3005BABC2 /* Processing.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BE69A9B71F9BF0E3005BABC2 /* ProcessingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE69A9CD1F9BF0E4005BABC2 /* Build configuration list for PBXNativeTarget "ProcessingTests" */;
+			buildPhases = (
+				BE69A9B41F9BF0E3005BABC2 /* Sources */,
+				BE69A9B51F9BF0E3005BABC2 /* Frameworks */,
+				BE69A9B61F9BF0E3005BABC2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE69A9BB1F9BF0E4005BABC2 /* PBXTargetDependency */,
+				BE69A9BD1F9BF0E4005BABC2 /* PBXTargetDependency */,
+			);
+			name = ProcessingTests;
+			productName = ProcessingTests;
+			productReference = BE69A9B81F9BF0E3005BABC2 /* ProcessingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		BEC7EA831D2B2DFA00D09466 /* User Program */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEC7EA911D2B2DFA00D09466 /* Build configuration list for PBXNativeTarget "User Program" */;
@@ -125,10 +260,12 @@
 				BEC7EA801D2B2DFA00D09466 /* Sources */,
 				BEC7EA811D2B2DFA00D09466 /* Frameworks */,
 				BEC7EA821D2B2DFA00D09466 /* Resources */,
+				BE69A9CC1F9BF0E4005BABC2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BE69A9C41F9BF0E4005BABC2 /* PBXTargetDependency */,
 			);
 			name = "User Program";
 			productName = "User Program";
@@ -141,10 +278,20 @@
 		BEC7EA7C1D2B2DFA00D09466 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Will Spurgeon";
 				TargetAttributes = {
+					BE69A9AF1F9BF0E3005BABC2 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+					BE69A9B71F9BF0E3005BABC2 = {
+						CreatedOnToolsVersion = 9.0.1;
+						DevelopmentTeam = 4B94WS5722;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BEC7EA831D2B2DFA00D09466;
+					};
 					BEC7EA831D2B2DFA00D09466 = {
 						CreatedOnToolsVersion = 7.3.1;
 						LastSwiftMigration = 0900;
@@ -165,11 +312,27 @@
 			projectRoot = "";
 			targets = (
 				BEC7EA831D2B2DFA00D09466 /* User Program */,
+				BE69A9AF1F9BF0E3005BABC2 /* Processing */,
+				BE69A9B71F9BF0E3005BABC2 /* ProcessingTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BE69A9AE1F9BF0E3005BABC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE69A9B61F9BF0E3005BABC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BEC7EA821D2B2DFA00D09466 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -182,34 +345,67 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BE69A9AB1F9BF0E3005BABC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE69A9D01F9BF107005BABC2 /* Quad.swift in Sources */,
+				BE69A9DE1F9BF110005BABC2 /* Enviroment.swift in Sources */,
+				BE69A9D41F9BF107005BABC2 /* StrokeWeight.swift in Sources */,
+				BE69A9D31F9BF107005BABC2 /* StrokeJoin.swift in Sources */,
+				BE69A9CF1F9BF107005BABC2 /* Point.swift in Sources */,
+				BE69A9D71F9BF107005BABC2 /* NoStroke.swift in Sources */,
+				BE69A9DC1F9BF110005BABC2 /* ProcessingView.swift in Sources */,
+				BE69A9D21F9BF107005BABC2 /* NoFill.swift in Sources */,
+				BE69A9CE1F9BF107005BABC2 /* Triangle.swift in Sources */,
+				BE69A9DA1F9BF110005BABC2 /* Line.swift in Sources */,
+				BE69A9DB1F9BF110005BABC2 /* Ellipse.swift in Sources */,
+				BE69A9D81F9BF107005BABC2 /* StrokeCap.swift in Sources */,
+				BE69A9DD1F9BF110005BABC2 /* Drawable.swift in Sources */,
+				BE69A9D11F9BF107005BABC2 /* Stroke.swift in Sources */,
+				BE69A9D51F9BF107005BABC2 /* Rectangle.swift in Sources */,
+				BE69A9D61F9BF107005BABC2 /* UserProgram.swift in Sources */,
+				BE69A9DF1F9BF110005BABC2 /* Fill.swift in Sources */,
+				BE69A9D91F9BF110005BABC2 /* Background.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE69A9B41F9BF0E3005BABC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE69A9C01F9BF0E4005BABC2 /* ProcessingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BEC7EA801D2B2DFA00D09466 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BEC7EA951D2B2E1D00D09466 /* AppDelegate.swift in Sources */,
-				BEC7EAB91D2B2E3200D09466 /* StrokeWeight.swift in Sources */,
-				BEC7EAA91D2B2E3200D09466 /* Background.swift in Sources */,
-				BEC7EABA1D2B2E3200D09466 /* Triangle.swift in Sources */,
 				BEC7EAB01D2B2E3200D09466 /* MainProgram.swift in Sources */,
-				BEC7EAAE1D2B2E3200D09466 /* Fill.swift in Sources */,
-				BEC7EAB21D2B2E3200D09466 /* NoStroke.swift in Sources */,
-				BEC7EAAD1D2B2E3200D09466 /* Enviroment.swift in Sources */,
-				BEC7EAB71D2B2E3200D09466 /* StrokeCap.swift in Sources */,
-				BEC7EAAC1D2B2E3200D09466 /* Ellipse.swift in Sources */,
-				BEC7EAB61D2B2E3200D09466 /* Stroke.swift in Sources */,
-				BEC7EAB81D2B2E3200D09466 /* StrokeJoin.swift in Sources */,
-				BEC7EAB41D2B2E3200D09466 /* Quad.swift in Sources */,
-				BEC7EAAF1D2B2E3200D09466 /* Line.swift in Sources */,
-				BEC7EAB31D2B2E3200D09466 /* Point.swift in Sources */,
-				BEC7EAB11D2B2E3200D09466 /* NoFill.swift in Sources */,
-				BEC7EAAA1D2B2E3200D09466 /* ContainerView.swift in Sources */,
-				BEC7EAAB1D2B2E3200D09466 /* Drawable.swift in Sources */,
-				BEC7EAB51D2B2E3200D09466 /* Rectangle.swift in Sources */,
-				BEC7EABB1D2B2E3200D09466 /* UserProgram.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE69A9BB1F9BF0E4005BABC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE69A9AF1F9BF0E3005BABC2 /* Processing */;
+			targetProxy = BE69A9BA1F9BF0E4005BABC2 /* PBXContainerItemProxy */;
+		};
+		BE69A9BD1F9BF0E4005BABC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEC7EA831D2B2DFA00D09466 /* User Program */;
+			targetProxy = BE69A9BC1F9BF0E4005BABC2 /* PBXContainerItemProxy */;
+		};
+		BE69A9C41F9BF0E4005BABC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE69A9AF1F9BF0E3005BABC2 /* Processing */;
+			targetProxy = BE69A9C31F9BF0E4005BABC2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BEC7EA8B1D2B2DFA00D09466 /* MainMenu.xib */ = {
@@ -223,6 +419,114 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BE69A9C71F9BF0E4005BABC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Processing/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spurgeonworld.Processing;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BE69A9C81F9BF0E4005BABC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Processing/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spurgeonworld.Processing;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BE69A9C91F9BF0E4005BABC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4B94WS5722;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ProcessingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spurgeonworld.ProcessingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/User Program.app/Contents/MacOS/User Program";
+			};
+			name = Debug;
+		};
+		BE69A9CA1F9BF0E4005BABC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4B94WS5722;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ProcessingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spurgeonworld.ProcessingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/User Program.app/Contents/MacOS/User Program";
+			};
+			name = Release;
+		};
 		BEC7EA8F1D2B2DFA00D09466 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -325,6 +629,7 @@
 		BEC7EA921D2B2DFA00D09466 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -342,6 +647,7 @@
 		BEC7EA931D2B2DFA00D09466 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -358,6 +664,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BE69A9CB1F9BF0E4005BABC2 /* Build configuration list for PBXNativeTarget "Processing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE69A9C71F9BF0E4005BABC2 /* Debug */,
+				BE69A9C81F9BF0E4005BABC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE69A9CD1F9BF0E4005BABC2 /* Build configuration list for PBXNativeTarget "ProcessingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE69A9C91F9BF0E4005BABC2 /* Debug */,
+				BE69A9CA1F9BF0E4005BABC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BEC7EA7F1D2B2DFA00D09466 /* Build configuration list for PBXProject "User Program" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

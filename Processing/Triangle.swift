@@ -22,7 +22,7 @@ struct Triangle: Drawable, Hashable {
         }
     }
     
-    init(x1:Double, y1:Double, x2:Double, y2:Double, x3:Double, y3:Double) {
+    init(x1: Double, y1: Double, x2: Double, y2: Double, x3: Double, y3: Double) {
         self.x1 = x1
         self.y1 = y1
         self.x2 = x2

@@ -1,5 +1,5 @@
 //
-//  ContainerView.swift
+//  ProcessingView.swift
 //  TestWindowApp
 //
 //  Created by Will Spurgeon on 6/18/16.
@@ -9,55 +9,57 @@
 import AppKit
 import Carbon
 
-class ContainerView: NSView {
-    let program = MainProgram()
+open class ProcessingView: NSView, UserProgram {
     let mainImageView: NSImageView
     var oldDrawQueue: [Drawable]! = nil
     let defaultCursor = NSCursor.arrow
     
-    override init(frame frameRect: NSRect) {
+    open func setup() {}
+    open func draw() {}
+    
+    public override init(frame frameRect: NSRect) {
         mainImageView = NSImageView(frame: frameRect)
         super.init(frame: frameRect)
         commonSetup()
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         mainImageView = NSImageView()
         super.init(coder: coder)
         commonSetup()
     }
     
-    override func mouseMoved(with theEvent: NSEvent) {
+    override open func mouseMoved(with theEvent: NSEvent) {
         Enviroment.mouseX = Double(Float(theEvent.locationInWindow.x))
         Enviroment.mouseY = Double(Float(theEvent.locationInWindow.y))
-        program.mouseMoved()
+        self.mouseMoved()
     }
     
-    override func mouseEntered(with theEvent: NSEvent) {
+    override open func mouseEntered(with theEvent: NSEvent) {
         Enviroment.mouseIsInView = true
         Enviroment.currentCursor.set()
     }
     
-    override func mouseExited(with theEvent: NSEvent) {
+    override open func mouseExited(with theEvent: NSEvent) {
         Enviroment.mouseIsInView = false
         defaultCursor.set()
         
     }
     
-    override func mouseDragged(with theEvent: NSEvent) {
-        program.mouseDragged()
+    override open func mouseDragged(with theEvent: NSEvent) {
+        self.mouseDragged()
     }
     
-    override func mouseUp(with theEvent: NSEvent) {
-        program.mouseReleased()
+    override open func mouseUp(with theEvent: NSEvent) {
+        self.mouseReleased()
     }
     
-    override func mouseDown(with theEvent: NSEvent) {
-        program.mousePressed()
+    override open func mouseDown(with theEvent: NSEvent) {
+        self.mousePressed()
     }
     
     func commonSetup() {
-        self.acceptsTouchEvents = true
+        //self.allowedTouchTypes = [.direct]
         self.addSubview(mainImageView)
         
         //TODO: Currently does not allow update mouse location when dragging.
@@ -81,7 +83,7 @@ class ContainerView: NSView {
     func updateViews(timer: Timer) {
         if Enviroment.mode == .setup{
             Enviroment.listOfSetUpOps = []
-            program.setup()
+            self.setup()
             oldDrawQueue = Enviroment.listOfSetUpOps
             
             self.frame = NSRect(x: 0, y: 0, width: CGFloat(Enviroment.w), height: CGFloat(Enviroment.h))
@@ -90,8 +92,8 @@ class ContainerView: NSView {
             self.window?.setFrame(NSRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height), display: false)
         }else{
             Enviroment.listOfDrawOps = []
-            program.draw()
-            Enviroment.frameCount = Enviroment.frameCount + 1
+            self.draw()
+            Enviroment.frameCount += 1
         }
         
         if Enviroment.mode == .setup {

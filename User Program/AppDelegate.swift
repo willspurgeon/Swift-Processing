@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let view = ContainerView()
+        let view = MainProgram()
         window!.contentView?.addSubview(view)
         window.acceptsMouseMovedEvents = true
     }

@@ -15,8 +15,6 @@ protocol UserProgram {
 
 // Default implementations of optional functions. They do nothing if they are not implemented by the user.
 extension UserProgram {
-    func draw() {}
-    
     func mouseMoved() {}
     
     func mouseDragged() {}
@@ -36,147 +34,159 @@ func addToCorrectOpList(_ op: Drawable) {
     }
 }
 
-func size(width: Int, height: Int) {
+public func size(width: Int, height: Int) {
+    guard Enviroment.mode == .setup else {
+        fatalError("Size can only be set in the setup function")
+    }
+    
     Enviroment.w = width
     Enviroment.h = height
 }
 
-func background(r: Double, g: Double, b: Double) {
-    addToCorrectOpList(Background(r:r,g:g,b:b))
+public func background(r: Double, g: Double, b: Double) {
+    addToCorrectOpList(Background(r: r,g: g,b: b))
 }
 
-func ellipse(x:Int, y: Int, w:Int, h: Int) {
-    addToCorrectOpList(Ellipse(x: x, y: y, w: w, h:h))
+public func ellipse(x: Int, y: Int, w: Int, h: Int) {
+    addToCorrectOpList(Ellipse(x: x, y: y, w: w, h: h))
 }
 
-func fill(r: Double, g: Double, b: Double) {
-    addToCorrectOpList(Fill(r:r,g:g,b:b))
+public func fill(r: Double, g: Double, b: Double) {
+    addToCorrectOpList(Fill(r: r,g: g,b: b))
 }
 
-func stroke(r: Double, g: Double, b: Double) {
-    addToCorrectOpList(Stroke(r:r,g:g,b:b))
+public func stroke(r: Double, g: Double, b: Double) {
+    addToCorrectOpList(Stroke(r: r,g: g,b: b))
 }
 
-func strokeWeight(_ weight: Double) {
+public func strokeWeight(_ weight: Double) {
     addToCorrectOpList(StrokeWeight(weight: weight))
 }
 
-func rectangle(x: Int, y: Int, w: Int, h: Int) {
-    addToCorrectOpList(Rectangle(x: x, y: y, w: w, h:h))
+public func rectangle(x: Int, y: Int, w: Int, h: Int) {
+    addToCorrectOpList(Rectangle(x: x, y: y, w: w, h: h))
 }
 
-func line(x1: Double, y1: Double, x2: Double, y2: Double) {
+public func line(x1: Double, y1: Double, x2: Double, y2: Double) {
     addToCorrectOpList(Line(x1: x1, y1: y1, x2: x2, y2: y2))
 }
 
-func point(x: Double, y: Double) {
+public func point(x: Double, y: Double) {
     addToCorrectOpList(Point(x: x, y: y))
 }
 
-func quad(x1: Double, y1: Double, x2: Double, y2: Double, x3: Double, y3: Double, x4: Double, y4: Double) {
+public func quad(x1: Double, y1: Double, x2: Double, y2: Double, x3: Double, y3: Double, x4: Double, y4: Double) {
     addToCorrectOpList(Quad(x1: x1, y1: y1, x2: x2, y2: y2, x3: x3, y3: y3, x4: x4, y4: y4))
 }
 
-func frameRate(fps: Double) {
+public func frameRate(fps: Double) {
+    guard Enviroment.mode == .setup else {
+        fatalError("Frame rate can only be set in the setup function.")
+    }
+    
     Enviroment.frameRate = fps
 }
 
-func noStroke() {
+public func noStroke() {
     addToCorrectOpList(NoStroke())
 }
 
-func noFill() {
+public func noFill() {
     addToCorrectOpList(NoFill())
 }
 
-func triangle(x1: Double, y1: Double, x2: Double, y2: Double, x3: Double, y3: Double) {
+public func triangle(x1: Double, y1: Double, x2: Double, y2: Double, x3: Double, y3: Double) {
     addToCorrectOpList(Triangle(x1: x1, y1: y1, x2: x2, y2: y2, x3: x3, y3: y3))
 }
 
-enum JointType {
-    case miter,bevel,round
+public enum JointType {
+    case miter
+    case bevel
+    case round
 }
 
-func strokeJoin(joint: JointType) {
+public func strokeJoin(joint: JointType) {
     addToCorrectOpList(StrokeJoin(jointType: joint))
 }
 
-enum StrokeCapType {
-    case square,project,round
+public enum StrokeCapType {
+    case square
+    case project
+    case round
 }
 
-func strokeCap(capType cap: StrokeCapType) {
+public func strokeCap(capType cap: StrokeCapType) {
     addToCorrectOpList(StrokeCap(capType: cap))
 }
 
-func mouseX() -> Double {
+public func mouseX() -> Double {
     return Enviroment.mouseX
 }
 
-func mouseY() -> Double {
+public func mouseY() -> Double {
     return Enviroment.mouseY
 }
 
-func mouseIsPressed() ->Bool {
+public func mouseIsPressed() ->Bool {
     return Enviroment.mouseIsPressed
 }
 
-func frameCount() -> Int {
+public func frameCount() -> Int {
     return Enviroment.frameCount
 }
 
-func day() -> Int {
+public func day() -> Int {
     let today = Date()
     let formatter = DateFormatter()
     formatter.dateFormat = "dd"
     return Int(formatter.string(from: today))!
 }
 
-func hour() -> Int {
+public func hour() -> Int {
     let today = Date()
     let formatter = DateFormatter()
     formatter.dateFormat = "HH"
     return Int(formatter.string(from: today))!
 }
 
-func minute() -> Int {
+public func minute() -> Int {
     let today = Date()
     let formatter = DateFormatter()
     formatter.dateFormat = "mm"
     return Int(formatter.string(from: today))!
 }
 
-func second() -> Int {
+public func second() -> Int {
     let today = Date()
     let formatter = DateFormatter()
     formatter.dateFormat = "ss"
     return Int(formatter.string(from: today))!
 }
 
-func year() -> Int {
+public func year() -> Int {
     let today = Date()
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy"
     return Int(formatter.string(from: today))!
 }
 
-func month() -> Int {
+public func month() -> Int {
     let today = Date()
     let formatter = DateFormatter()
     formatter.dateFormat = "MM"
     return Int(formatter.string(from: today))!
 }
 
-func millisecond() -> Int {
+public func millisecond() -> Int {
     //TODO: Complete
     return 0
 }
 
-enum CursorKind {
+public enum CursorKind {
     case arrow, cross, hand, move, text
 }
 
-func cursor(_ kind: CursorKind) {
+public func cursor(_ kind: CursorKind) {
     //TODO: Add a Wait cursor.
     switch kind {
     case .arrow:
@@ -191,39 +201,38 @@ func cursor(_ kind: CursorKind) {
     case .text:
         Enviroment.currentCursor = NSCursor.iBeam
     }
-    
 }
 
-struct Vector {
+public struct Vector {
     var x = 0.0
     var y = 0.0
     var z = 0.0
     
     //TODO: Create all remaining forms of operator overloads.
     
-    init(x: Double, y: Double, z: Double) {
+    public init(x: Double, y: Double, z: Double) {
         self.x = x
         self.y = y
         self.z = z
     }
     
-    var magnitude: Double {
+    public var magnitude: Double {
         get{
             return sqrt((x*x)+(y*y)+(z*z))
         }
     }
     
-    var magnitudeSquared: Double {
+    public var magnitudeSquared: Double {
         get{
             return (x*x)+(y*y)+(z*z)
         }
     }
     
-    func distanceTo(_ vect: Vector) -> Double {
-        return sqrt(pow(vect.x-x, 2)+pow(vect.y-y, 2)+pow(vect.z-z, 2))
+    public func distanceTo(_ vect: Vector) -> Double {
+        return sqrt(pow(vect.x - x, 2) + pow(vect.y - y, 2) + pow(vect.z - z, 2))
     }
     
-    mutating func normalize() -> Vector {
+    public mutating func normalize() -> Vector {
         let mag = magnitude
         x = x/mag
         y = y/mag
@@ -231,37 +240,37 @@ struct Vector {
         return self
     }
     
-    mutating func setMagnitude(_ mag: Double) -> Vector {
+    public mutating func setMagnitude(_ mag: Double) -> Vector {
         self = self.normalize()
         self *= mag
         return self
     }
 }
 
-func == (left: Vector, right: Vector) -> Bool {
-    return left.x==right.x && left.y==right.y && left.z==right.z
+public func == (left: Vector, right: Vector) -> Bool {
+    return left.x == right.x && left.y == right.y && left.z == right.z
 }
 
-func + (left: Vector, right: Vector) -> Vector {
-    return Vector(x: left.x+right.x, y: left.y+right.y, z: left.z+right.z)
+public func + (left: Vector, right: Vector) -> Vector {
+    return Vector(x: left.x + right.x, y: left.y + right.y, z: left.z + right.z)
 }
 
-func - (left: Vector, right: Vector) -> Vector {
-    return Vector(x: left.x-right.x, y: left.y-right.y, z: left.z-right.z)
+public func - (left: Vector, right: Vector) -> Vector {
+    return Vector(x: left.x - right.x, y: left.y - right.y, z: left.z - right.z)
 }
 
-func += (left: inout Vector, right: Vector) {
-    left = left+right
+public func += (left: inout Vector, right: Vector) {
+    left = left + right
 }
 
-func -= (left: inout Vector, right: Vector) {
-    left = left+right
+public func -= (left: inout Vector, right: Vector) {
+    left = left + right
 }
 
-func *= (left: inout Vector, right: Double) {
-    left = Vector(x: left.x*right, y: left.y*right, z: left.z*right)
+public func *= (left: inout Vector, right: Double) {
+    left = Vector(x: left.x * right, y: left.y * right, z: left.z * right)
 }
 
-func /= (left: inout Vector, right: Double) {
-    left = Vector(x: left.x/right, y: left.y/right, z: left.z/right)
+public func /= (left: inout Vector, right: Double) {
+    left = Vector(x: left.x / right, y: left.y / right, z: left.z / right)
 }
