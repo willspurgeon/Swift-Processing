@@ -19,7 +19,7 @@ struct Background: Drawable, Hashable {
         }
     }
     
-    init(r:Double, g: Double, b:Double) {
+    init(r: Double, g: Double, b: Double) {
         self.r = r
         self.g = g
         self.b = b
@@ -40,6 +40,6 @@ struct Background: Drawable, Hashable {
     }
 }
 
-func ==(lhs :Background, rhs: Background)->Bool {
+func ==(lhs: Background, rhs: Background) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }

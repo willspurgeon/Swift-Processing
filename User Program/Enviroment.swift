@@ -19,11 +19,11 @@ open class Enviroment {
     open static var w = 1000
     static var h = 500
     
-    static var mouseX: Float = 0
-    static var mouseY: Float = 0
-    static var mouseIsPressed:Bool {
+    static var mouseX: Double = 0
+    static var mouseY: Double = 0
+    static var mouseIsPressed: Bool {
         get{
-            guard mouseIsInView else{return false}
+            guard mouseIsInView else { return false }
             return NSEvent.pressedMouseButtons != 0
         }
     }

@@ -28,8 +28,8 @@ class ContainerView: NSView {
     }
     
     override func mouseMoved(with theEvent: NSEvent) {
-        Enviroment.mouseX = Float(theEvent.locationInWindow.x)
-        Enviroment.mouseY = Float(theEvent.locationInWindow.y)
+        Enviroment.mouseX = Double(Float(theEvent.locationInWindow.x))
+        Enviroment.mouseY = Double(Float(theEvent.locationInWindow.y))
         program.mouseMoved()
     }
     

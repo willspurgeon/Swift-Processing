@@ -13,7 +13,7 @@ protocol UserProgram {
     func draw()
 }
 
-//Default implementations of "opitional" functions. They do nothing if they are not implemented by the user.
+// Default implementations of optional functions. They do nothing if they are not implemented by the user.
 extension UserProgram {
     func draw() {}
     
@@ -109,15 +109,15 @@ func strokeCap(capType cap: StrokeCapType) {
     addToCorrectOpList(StrokeCap(capType: cap))
 }
 
-func mouseX()->Float {
+func mouseX() -> Double {
     return Enviroment.mouseX
 }
 
-func mouseY()->Float {
+func mouseY() -> Double {
     return Enviroment.mouseY
 }
 
-func mouseIsPressed()->Bool {
+func mouseIsPressed() ->Bool {
     return Enviroment.mouseIsPressed
 }
 
@@ -219,7 +219,7 @@ struct Vector {
         }
     }
     
-    func distanceTo(_ vect: Vector)->Double {
+    func distanceTo(_ vect: Vector) -> Double {
         return sqrt(pow(vect.x-x, 2)+pow(vect.y-y, 2)+pow(vect.z-z, 2))
     }
     
@@ -236,7 +236,6 @@ struct Vector {
         self *= mag
         return self
     }
-    
 }
 
 func == (left: Vector, right: Vector) -> Bool {
