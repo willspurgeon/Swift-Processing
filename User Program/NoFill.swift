@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NoFill:Drawable, Hashable{
+struct NoFill: Drawable, Hashable {
     
     var hashValue: Int{
         get{
@@ -20,13 +20,13 @@ struct NoFill:Drawable, Hashable{
         Enviroment.fill = nil
     }
     
-    func isEqualTo(_ other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? NoFill else { return false }
         return self.hashValue == other.hashValue
     }
     
 }
 
-func ==(lhs :NoFill, rhs: NoFill)->Bool{
+func ==(lhs :NoFill, rhs: NoFill)->Bool {
     return lhs.hashValue == rhs.hashValue
 }

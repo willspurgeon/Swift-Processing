@@ -15,7 +15,7 @@ struct Ellipse: Drawable, Hashable {
     let w: Int
     let h: Int
     
-    var hashValue: Int{
+    var hashValue: Int {
         get{
             return hashPrefix^x.hashValue^y.hashValue^w.hashValue^h.hashValue
         }
@@ -23,20 +23,20 @@ struct Ellipse: Drawable, Hashable {
     
     //Is expecting the x,y center point.
     //The initilizer does the conversion.
-    init(x:Int, y: Int, w:Int, h: Int){
+    init(x:Int, y: Int, w:Int, h: Int) {
         self.x = x-(w/2)
         self.y = y-(h/2)
         self.w = w
         self.h = h
     }
     
-    func drawShape(){
+    func drawShape() {
         let bPath:NSBezierPath = NSBezierPath(ovalIn: NSRect(x: x, y: y, width: w, height: h))
         bPath.lineWidth = CGFloat(Enviroment.strokeWeight)
         bPath.lineJoinStyle = Enviroment.jointType
         bPath.lineCapStyle = Enviroment.capType
         
-        if (Enviroment.stroke != nil){
+        if (Enviroment.stroke != nil) {
             bPath.lineWidth = CGFloat(Enviroment.strokeWeight)
             Enviroment.stroke!.setStroke()
             bPath.stroke()
@@ -47,12 +47,12 @@ struct Ellipse: Drawable, Hashable {
         }
     }
     
-    func isEqualTo(_ other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? Ellipse else { return false }
         return self.hashValue == other.hashValue
     }
 }
 
-func ==(lhs :Ellipse, rhs: Ellipse)->Bool{
+func ==(lhs :Ellipse, rhs: Ellipse)->Bool {
     return lhs.hashValue == rhs.hashValue
 }

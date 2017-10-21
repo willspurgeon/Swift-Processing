@@ -8,7 +8,7 @@
 
 import AppKit
 
-struct Stroke:Drawable, Hashable{
+struct Stroke: Drawable, Hashable {
     let r: Double
     let g: Double
     let b: Double
@@ -19,23 +19,24 @@ struct Stroke:Drawable, Hashable{
         }
     }
     
-    init(r:Double, g: Double, b:Double){
+    init(r:Double, g: Double, b:Double) {
         self.r = r
         self.g = g
         self.b = b
     }
-    func drawShape(){
+    
+    func drawShape() {
         let strokeColor = NSColor(red: CGFloat(r)/255, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: 1.0)
         Enviroment.stroke = strokeColor
         //Don't bother setting the stroke here. It won't work.
     }
     
-    func isEqualTo(_ other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? Stroke else { return false }
         return self.hashValue == other.hashValue
     }
 }
 
-func ==(lhs :Stroke, rhs: Stroke)->Bool{
+func ==(lhs: Stroke, rhs: Stroke) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }

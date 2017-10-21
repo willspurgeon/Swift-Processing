@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct NoStroke:Drawable, Hashable{
+struct NoStroke: Drawable, Hashable {
     
-    var hashValue: Int{
+    var hashValue: Int {
         get{
             return "NoStroke".hashValue
         }
@@ -20,12 +20,12 @@ struct NoStroke:Drawable, Hashable{
         Enviroment.stroke = nil
     }
     
-    func isEqualTo(_ other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? NoStroke else { return false }
         return self.hashValue == other.hashValue
     }
 }
 
-func ==(lhs :NoStroke, rhs: NoStroke)->Bool{
+func ==(lhs :NoStroke, rhs: NoStroke)->Bool {
     return lhs.hashValue == rhs.hashValue
 }

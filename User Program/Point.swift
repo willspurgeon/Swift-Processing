@@ -8,23 +8,23 @@
 
 import AppKit
 
-struct Point: Drawable, Hashable{
+struct Point: Drawable, Hashable {
     let x: Double
     let y: Double
     
-    init(x: Double, y: Double){
+    init(x: Double, y: Double) {
         self.x = x
         self.y = y
     }
     
-    var hashValue: Int{
+    var hashValue: Int {
         get{
             return "Point\(x),\(y)".hashValue
         }
     }
     
     func drawShape() {
-        if Enviroment.stroke != nil{
+        if Enviroment.stroke != nil {
             //TODO: Make the point centered on the desired coordinates, but also large enough to see.
             let bPath = NSBezierPath(rect: NSRect(x: x, y: y, width: 1, height: 1))
             bPath.lineJoinStyle = Enviroment.jointType
@@ -34,12 +34,12 @@ struct Point: Drawable, Hashable{
             bPath.stroke()
         }
     }
-    func isEqualTo(_ other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? Point else { return false }
         return self.hashValue == other.hashValue
     }
 }
 
-func ==(lhs :Point, rhs: Point)->Bool{
+func ==(lhs :Point, rhs: Point)->Bool {
     return lhs.hashValue == rhs.hashValue
 }

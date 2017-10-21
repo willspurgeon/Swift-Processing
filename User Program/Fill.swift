@@ -9,7 +9,7 @@
 import AppKit
 import Foundation
 
-struct Fill:Drawable, Hashable{
+struct Fill:Drawable, Hashable {
     let r: Double
     let g: Double
     let b: Double

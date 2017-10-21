@@ -8,7 +8,7 @@
 
 import AppKit
 
-open class Enviroment{
+open class Enviroment {
     enum ProgramMode {
         case setup
         case draw
@@ -24,7 +24,7 @@ open class Enviroment{
     static var mouseIsPressed:Bool {
         get{
             guard mouseIsInView else{return false}
-            return NSEvent.pressedMouseButtons() != 0
+            return NSEvent.pressedMouseButtons != 0
         }
     }
     
@@ -32,8 +32,8 @@ open class Enviroment{
     static var stroke: NSColor? = NSColor.black
     static var fill: NSColor? = NSColor.white
     static var strokeWeight: Double = 0
-    static var jointType: NSLineJoinStyle = .miterLineJoinStyle
-    static var capType: NSLineCapStyle = .roundLineCapStyle
+    static var jointType: NSBezierPath.LineJoinStyle = .miterLineJoinStyle
+    static var capType: NSBezierPath.LineCapStyle = .roundLineCapStyle
     
     static var mouseLocation:NSPoint = NSPoint()
     static var mouseIsInView: Bool = false
@@ -52,5 +52,5 @@ open class Enviroment{
     }
     static var frameCount = 0
     
-    static var currentCursor = NSCursor.arrow()
+    static var currentCursor = NSCursor.arrow
 }

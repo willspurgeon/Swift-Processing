@@ -8,7 +8,7 @@
 
 import AppKit
 
-struct Line: Drawable, Hashable{
+struct Line: Drawable, Hashable {
     let x1: Double
     let y1: Double
     let x2: Double
