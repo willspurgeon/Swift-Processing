@@ -10,7 +10,6 @@ import AppKit
 import Carbon
 
 open class ProcessingView: NSView, UserProgram {
-    let mainImageView: NSImageView
     var oldDrawQueue: [Drawable]! = nil
     let defaultCursor = NSCursor.arrow
     
@@ -18,13 +17,11 @@ open class ProcessingView: NSView, UserProgram {
     open func draw() {}
     
     public override init(frame frameRect: NSRect) {
-        mainImageView = NSImageView(frame: frameRect)
         super.init(frame: frameRect)
         commonSetup()
     }
     
     public required init?(coder: NSCoder) {
-        mainImageView = NSImageView()
         super.init(coder: coder)
         commonSetup()
     }
@@ -59,9 +56,6 @@ open class ProcessingView: NSView, UserProgram {
     }
     
     func commonSetup() {
-        //self.allowedTouchTypes = [.direct]
-        self.addSubview(mainImageView)
-        
         //TODO: Currently does not allow update mouse location when dragging.
         let trackingArea = NSTrackingArea(rect: self.bounds, options: [NSTrackingArea.Options.activeAlways , NSTrackingArea.Options.mouseMoved, NSTrackingArea.Options.mouseEnteredAndExited,NSTrackingArea.Options.inVisibleRect], owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
@@ -80,24 +74,8 @@ open class ProcessingView: NSView, UserProgram {
         return true
     }
     
-    func updateViews(timer: Timer) {
-        if Enviroment.mode == .setup{
-            Enviroment.listOfSetUpOps = []
-            self.setup()
-            oldDrawQueue = Enviroment.listOfSetUpOps
-            
-            self.frame = NSRect(x: 0, y: 0, width: CGFloat(Enviroment.w), height: CGFloat(Enviroment.h))
-            mainImageView.image = NSImage(size: NSSize(width: self.frame.width, height: self.frame.height))
-            mainImageView.frame = NSRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
-            self.window?.setFrame(NSRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height), display: false)
-        }else{
-            Enviroment.listOfDrawOps = []
-            self.draw()
-            Enviroment.frameCount += 1
-        }
-        
+    open override func draw(_ dirtyRect: NSRect) {
         if Enviroment.mode == .setup {
-            mainImageView.image?.lockFocus()
             let currentContext = NSGraphicsContext.current
             currentContext?.shouldAntialias = false
             
@@ -110,25 +88,39 @@ open class ProcessingView: NSView, UserProgram {
             
             Enviroment.listOfSetUpOps = []
             Enviroment.mode = .draw
-            
-            mainImageView.image?.unlockFocus()
-            mainImageView.setNeedsDisplay()
-            NSApp.activate(ignoringOtherApps: true)
         } else {
-            let newDrawQueue = Enviroment.listOfDrawOps
-            if !drawableArraysAreEqual(newDrawQueue, oldDrawQueue) {
-                mainImageView.image?.lockFocus()
-                let currentContext = NSGraphicsContext.current
-                currentContext?.shouldAntialias = false
-                
-                for op in Enviroment.listOfDrawOps {
-                    op.drawShape()
-                }
-                
-                mainImageView.image?.unlockFocus()
-                mainImageView.setNeedsDisplay()
-                oldDrawQueue = Enviroment.listOfDrawOps
+            let currentContext = NSGraphicsContext.current
+            currentContext?.shouldAntialias = false
+            
+            for op in Enviroment.listOfDrawOps {
+                op.drawShape()
             }
+            
+            oldDrawQueue = Enviroment.listOfDrawOps
+        }
+    }
+    
+    func updateViews(timer: Timer) {
+        if self.frame == NSRect.zero {
+            self.frame = NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h)
+        }
+        
+        if Enviroment.mode == .setup{
+            Enviroment.listOfSetUpOps = []
+            self.setup()
+            oldDrawQueue = Enviroment.listOfSetUpOps
+            
+            self.frame = NSRect(x: 0, y: 0, width: CGFloat(Enviroment.w), height: CGFloat(Enviroment.h))
+            self.frame = NSRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+            self.window?.setFrame(NSRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height), display: false)
+        }else{
+            Enviroment.listOfDrawOps = []
+            self.draw()
+            Enviroment.frameCount += 1
+        }
+        
+        if !drawableArraysAreEqual(Enviroment.listOfDrawOps, oldDrawQueue) {
+            self.setNeedsDisplay(NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h))
         }
     }
 }

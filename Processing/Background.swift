@@ -25,6 +25,7 @@ struct Background: Drawable, Hashable {
         self.b = b
     }
     
+    // TODO buffer the background in some way
     func drawShape() {
         let path = NSBezierPath(rect: NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h))
         
