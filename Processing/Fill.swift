@@ -9,18 +9,18 @@
 import AppKit
 import Foundation
 
-struct Fill:Drawable, Hashable {
+struct Fill: Drawable, Hashable {
     let r: Double
     let g: Double
     let b: Double
     
-    var hashValue: Int{
+    var hashValue: Int {
         get{
             return "Fill\(r),\(g),\(b)".hashValue
         }
     }
     
-    init(r:Double, g: Double, b:Double){
+    init(r: Double, g: Double, b: Double) {
         self.r = r
         self.g = g
         self.b = b
@@ -32,12 +32,12 @@ struct Fill:Drawable, Hashable {
         fillColor.set()
     }
     
-    func isEqualTo(_ other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? Fill else { return false }
         return self.hashValue == other.hashValue
     }
 }
 
-func ==(lhs :Fill, rhs: Fill)->Bool{
+func ==(lhs : Fill, rhs: Fill) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }

@@ -40,6 +40,6 @@ struct Point: Drawable, Hashable {
     }
 }
 
-func ==(lhs :Point, rhs: Point)->Bool {
+func ==(lhs: Point, rhs: Point) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }

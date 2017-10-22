@@ -17,9 +17,7 @@ struct Triangle: Drawable, Hashable {
     let y3: Double
     
     var hashValue: Int {
-        get{
-            return "Triangle\(x1),\(y1),\(x1),\(y2),\(x3),\(y3)".hashValue
-        }
+        return "Triangle\(x1),\(y1),\(x1),\(y2),\(x3),\(y3)".hashValue
     }
     
     init(x1: Double, y1: Double, x2: Double, y2: Double, x3: Double, y3: Double) {

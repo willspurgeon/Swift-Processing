@@ -12,9 +12,7 @@ struct StrokeWeight: Drawable, Hashable {
     let weight: Double
     
     var hashValue: Int {
-        get {
-            return "StrokeWeight\(weight)".hashValue
-        }
+        return "StrokeWeight\(weight)".hashValue
     }
     
     init(weight: Double) {
@@ -32,6 +30,6 @@ struct StrokeWeight: Drawable, Hashable {
     }
 }
 
-func ==(lhs: StrokeWeight, rhs: StrokeWeight) ->Bool {
+func ==(lhs: StrokeWeight, rhs: StrokeWeight) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }

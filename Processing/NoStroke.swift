@@ -26,6 +26,6 @@ struct NoStroke: Drawable, Hashable {
     }
 }
 
-func ==(lhs :NoStroke, rhs: NoStroke)->Bool {
+func ==(lhs: NoStroke, rhs: NoStroke) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }

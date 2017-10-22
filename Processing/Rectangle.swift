@@ -16,12 +16,10 @@ struct Rectangle: Drawable, Hashable {
     let h: Int
     
     var hashValue: Int {
-        get{
-            return hashPrefix^x.hashValue^y.hashValue^w.hashValue^h.hashValue
-        }
+        return hashPrefix^x.hashValue^y.hashValue^w.hashValue^h.hashValue
     }
     
-    init(x:Int, y: Int, w:Int, h: Int) {
+    init(x: Int, y: Int, w: Int, h: Int) {
         self.x = x
         self.y = y
         self.w = w

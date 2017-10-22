@@ -8,7 +8,7 @@
 
 import AppKit
 
-open class Enviroment {
+class Enviroment {
     enum ProgramMode {
         case setup
         case draw
@@ -35,7 +35,7 @@ open class Enviroment {
     static var jointType: NSBezierPath.LineJoinStyle = .miterLineJoinStyle
     static var capType: NSBezierPath.LineCapStyle = .roundLineCapStyle
     
-    static var mouseLocation:NSPoint = NSPoint()
+    static var mouseLocation: NSPoint = NSPoint()
     static var mouseIsInView: Bool = false
     
     static var listOfOps: [Drawable] = [Drawable]()

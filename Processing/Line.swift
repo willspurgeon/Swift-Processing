@@ -14,13 +14,13 @@ struct Line: Drawable, Hashable {
     let x2: Double
     let y2: Double
     
-    var hashValue: Int{
+    var hashValue: Int {
         get{
             return "Line\(x1),\(y1),\(x2),\(y2)".hashValue
         }
     }
     
-    init(x1:Double, y1:Double, x2:Double, y2:Double){
+    init(x1: Double, y1: Double, x2: Double, y2: Double) {
         self.x1 = x1
         self.y1 = y1
         self.x2 = x2
@@ -34,19 +34,19 @@ struct Line: Drawable, Hashable {
         bPath.lineJoinStyle = Enviroment.jointType
         bPath.lineCapStyle = Enviroment.capType
         
-        if Enviroment.stroke != nil{
+        if Enviroment.stroke != nil {
             bPath.lineWidth = CGFloat(Enviroment.strokeWeight)
             Enviroment.stroke!.setStroke()
             bPath.stroke()
         }
     }
     
-    func isEqualTo(_ other: Any) -> Bool{
+    func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? Line else { return false }
         return self.hashValue == other.hashValue
     }
 }
 
-func ==(lhs :Line, rhs: Line)->Bool{
+func ==(lhs: Line, rhs: Line) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }

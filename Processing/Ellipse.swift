@@ -51,6 +51,6 @@ struct Ellipse: Drawable, Hashable {
     }
 }
 
-func ==(lhs :Ellipse, rhs: Ellipse)->Bool {
+func ==(lhs: Ellipse, rhs: Ellipse) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }

@@ -14,12 +14,10 @@ struct Stroke: Drawable, Hashable {
     let b: Double
     
     var hashValue: Int{
-        get{
-            return "Stroke\(r),\(g),\(b)".hashValue
-        }
+        return "Stroke\(r),\(g),\(b)".hashValue
     }
     
-    init(r:Double, g: Double, b:Double) {
+    init(r: Double, g: Double, b: Double) {
         self.r = r
         self.g = g
         self.b = b

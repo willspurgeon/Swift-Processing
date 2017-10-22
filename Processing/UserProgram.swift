@@ -47,35 +47,39 @@ public var width: Int { return Enviroment.w }
 public var height: Int { return Enviroment.h }
 
 public func random(lowerLimit: Double = 0, upperLimit: Double = 1.0) -> Double {
+    guard upperLimit >= lowerLimit else {
+        fatalError("The upper limit must be greater than or equal to the lower limit")
+    }
+    
     let rand = Double(arc4random_uniform(UInt32.max)) / Double(UInt32.max)
     return lowerLimit + (Double(rand) * (upperLimit - lowerLimit))
 }
 
-public func cos(_ x: Double) -> Double {
+public func cosine(_ x: Double) -> Double {
     return Darwin.cos(x)
 }
 
-public func sin(_ x: Double) -> Double {
+public func sine(_ x: Double) -> Double {
     return Darwin.sin(x)
 }
 
-public func tan(_ x: Double) -> Double {
+public func tangent(_ x: Double) -> Double {
     return Darwin.tan(x)
 }
 
-public func acos(_ x: Double) -> Double {
+public func arccosine(_ x: Double) -> Double {
     return Darwin.acos(x)
 }
 
-public func asin(_ x: Double) -> Double {
+public func arcsine(_ x: Double) -> Double {
     return Darwin.asin(x)
 }
 
-public func atan(_ x: Double) -> Double {
+public func arctangent(_ x: Double) -> Double {
     return Darwin.atan(x)
 }
 
-public func atan2(_ y:Double, x: Double) -> Double {
+public func arctangent2(y: Double, x: Double) -> Double {
     return Darwin.atan2(y, x)
 }
 
@@ -244,7 +248,7 @@ public enum CursorKind {
     case arrow, cross, hand, move, text
 }
 
-public func cursor(_ kind: CursorKind) {
+public func cursor(withStyle: CursorKind) {
     //TODO: Add a Wait cursor.
     switch kind {
     case .arrow:

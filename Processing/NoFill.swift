@@ -10,7 +10,7 @@ import Foundation
 
 struct NoFill: Drawable, Hashable {
     
-    var hashValue: Int{
+    var hashValue: Int {
         get{
             return "NoFill".hashValue
         }
@@ -27,6 +27,6 @@ struct NoFill: Drawable, Hashable {
     
 }
 
-func ==(lhs :NoFill, rhs: NoFill)->Bool {
+func ==(lhs: NoFill, rhs: NoFill) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }

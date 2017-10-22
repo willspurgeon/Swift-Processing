@@ -13,9 +13,7 @@ struct StrokeCap: Drawable, Hashable {
     let cap: NSBezierPath.LineCapStyle
     
     var hashValue: Int {
-        get{
-            return "StrokeCap\(cap)".hashValue
-        }
+        return "StrokeCap\(cap)".hashValue
     }
     
     init(capType: StrokeCapType) {
@@ -39,6 +37,6 @@ struct StrokeCap: Drawable, Hashable {
     }
 }
 
-func ==(lhs: StrokeCap, rhs: StrokeCap) ->Bool {
+func ==(lhs: StrokeCap, rhs: StrokeCap) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }

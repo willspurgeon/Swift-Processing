@@ -14,9 +14,7 @@ struct Background: Drawable, Hashable {
     let b: Double
     
     var hashValue: Int {
-        get{
-            return "Background\(r),\(g),\(b)".hashValue
-        }
+        return "Background\(r),\(g),\(b)".hashValue
     }
     
     init(r: Double, g: Double, b: Double) {

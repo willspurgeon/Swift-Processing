@@ -13,9 +13,7 @@ struct StrokeJoin: Drawable, Hashable {
     let joint: NSBezierPath.LineJoinStyle
     
     var hashValue: Int {
-        get {
-            return "StrokeJoin\(joint)".hashValue
-        }
+        return "StrokeJoin\(joint)".hashValue
     }
     
     init(jointType: JointType) {
@@ -39,6 +37,6 @@ struct StrokeJoin: Drawable, Hashable {
     }
 }
 
-func ==(lhs: StrokeJoin, rhs: StrokeJoin) ->Bool {
+func ==(lhs: StrokeJoin, rhs: StrokeJoin) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }
