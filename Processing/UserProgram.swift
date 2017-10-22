@@ -248,7 +248,7 @@ public enum CursorKind {
     case arrow, cross, hand, move, text
 }
 
-public func cursor(withStyle: CursorKind) {
+public func cursor(withStyle kind: CursorKind) {
     //TODO: Add a Wait cursor.
     switch kind {
     case .arrow:
