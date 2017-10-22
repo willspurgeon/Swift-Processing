@@ -43,12 +43,8 @@ open class Enviroment {
     static var listOfSetUpOps: [Drawable] = [Drawable]()
     static var listOfDrawOps: [Drawable] = [Drawable]()
     
-    static var frameRate:Double = 30.0
-    static var frameTime: Double {
-        get{
-            return 1.0/frameRate
-        }
-    }
+    static var frameRate: Double = 30.0
+    static var frameTime: Double { return 1.0 / frameRate }
     static var frameCount = 0
     
     static var currentCursor = NSCursor.arrow

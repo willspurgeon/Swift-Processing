@@ -24,15 +24,9 @@ struct Background: Drawable, Hashable {
         self.g = g
         self.b = b
     }
-    
-    // TODO buffer the background in some way
+
     func drawShape() {
-        let path = NSBezierPath(rect: NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h))
-        
-        let backColor = NSColor(red: CGFloat(r)/255, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: 1.0)
-        backColor.set()
-        path.fill()
-        Enviroment.fill?.set()
+        Enviroment.backgroundColor = NSColor(red: CGFloat(r)/255, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: 1.0)
     }
     
     func isEqualTo(_ other: Any) -> Bool {

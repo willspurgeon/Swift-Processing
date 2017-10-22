@@ -10,6 +10,8 @@ import AppKit
 import Carbon
 
 open class ProcessingView: NSView, UserProgram {
+    let backgroundView: NSView = NSView()
+    var redrawTimer: Timer = Timer()
     var oldDrawQueue: [Drawable]! = nil
     let defaultCursor = NSCursor.arrow
     
@@ -60,11 +62,11 @@ open class ProcessingView: NSView, UserProgram {
         let trackingArea = NSTrackingArea(rect: self.bounds, options: [NSTrackingArea.Options.activeAlways , NSTrackingArea.Options.mouseMoved, NSTrackingArea.Options.mouseEnteredAndExited,NSTrackingArea.Options.inVisibleRect], owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
         
-        Timer.scheduledTimer(withTimeInterval: Enviroment.frameTime, repeats: true, block: updateViews)
+        updateViews(timer: redrawTimer)
     }
     
-    func drawableArraysAreEqual(_ lhs: [Drawable], _ rhs: [Drawable])->Bool{
-        guard lhs.count == rhs.count else {return false}
+    func drawableArraysAreEqual(_ lhs: [Drawable], _ rhs: [Drawable]) -> Bool{
+        guard lhs.count == rhs.count else { return false }
         
         for (index, element) in lhs.enumerated(){
             if !element.isEqualTo(rhs[index]){
@@ -74,7 +76,11 @@ open class ProcessingView: NSView, UserProgram {
         return true
     }
     
+    var oldTime = Date().timeIntervalSince1970
     open override func draw(_ dirtyRect: NSRect) {
+        let time = Date().timeIntervalSince1970 - oldTime
+        print("FPS: \(1/(time/1000))")
+        oldTime = time
         if Enviroment.mode == .setup {
             let currentContext = NSGraphicsContext.current
             currentContext?.shouldAntialias = false
@@ -111,15 +117,25 @@ open class ProcessingView: NSView, UserProgram {
             oldDrawQueue = Enviroment.listOfSetUpOps
             
             self.frame = NSRect(x: 0, y: 0, width: CGFloat(Enviroment.w), height: CGFloat(Enviroment.h))
-            self.frame = NSRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+            self.backgroundView.frame = frame
             self.window?.setFrame(NSRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height), display: false)
-        }else{
+            
+            redrawTimer = Timer.scheduledTimer(withTimeInterval: Enviroment.frameTime, repeats: true, block: updateViews)
+            redrawTimer.tolerance = 0.001
+        } else {
             Enviroment.listOfDrawOps = []
             self.draw()
             Enviroment.frameCount += 1
         }
         
+        
         if !drawableArraysAreEqual(Enviroment.listOfDrawOps, oldDrawQueue) {
+            if let background = Enviroment.listOfDrawOps.filter({ $0 is Background }).last as? Background {
+                if NSColor(red: CGFloat(background.r)/255, green: CGFloat(background.g)/255, blue: CGFloat(background.b)/255, alpha: 1.0) != Enviroment.backgroundColor {
+                    backgroundView.layer?.backgroundColor = CGColor(red: CGFloat(background.r), green: CGFloat(background.g), blue: CGFloat(background.b), alpha: 1)
+                }
+            }
+            
             self.setNeedsDisplay(NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h))
         }
     }
