@@ -16,7 +16,7 @@ open class Enviroment {
     
     static var mode: ProgramMode = .setup
     
-    open static var w = 1000
+    static var w = 1000
     static var h = 500
     
     static var mouseX: Double = 0
@@ -43,7 +43,6 @@ open class Enviroment {
     static var listOfSetUpOps: [Drawable] = [Drawable]()
     static var listOfDrawOps: [Drawable] = [Drawable]()
     
-    //TODO: Set the timer to a new value once the setup function is called by the user.
     static var frameRate:Double = 30.0
     static var frameTime: Double {
         get{

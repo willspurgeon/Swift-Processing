@@ -16,14 +16,12 @@ struct Ellipse: Drawable, Hashable {
     let h: Int
     
     var hashValue: Int {
-        get{
-            return hashPrefix^x.hashValue^y.hashValue^w.hashValue^h.hashValue
-        }
+        return hashPrefix ^ x.hashValue ^ y.hashValue ^ w.hashValue ^ h.hashValue
     }
     
     //Is expecting the x,y center point.
     //The initilizer does the conversion.
-    init(x:Int, y: Int, w:Int, h: Int) {
+    init(x: Int, y: Int, w: Int, h: Int) {
         self.x = x-(w/2)
         self.y = y-(h/2)
         self.w = w
@@ -31,7 +29,7 @@ struct Ellipse: Drawable, Hashable {
     }
     
     func drawShape() {
-        let bPath:NSBezierPath = NSBezierPath(ovalIn: NSRect(x: x, y: y, width: w, height: h))
+        let bPath: NSBezierPath = NSBezierPath(ovalIn: NSRect(x: x, y: y, width: w, height: h))
         bPath.lineWidth = CGFloat(Enviroment.strokeWeight)
         bPath.lineJoinStyle = Enviroment.jointType
         bPath.lineCapStyle = Enviroment.capType

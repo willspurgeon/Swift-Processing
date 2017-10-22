@@ -44,11 +44,11 @@ public func size(width: Int, height: Int) {
 }
 
 public var width: Int { return Enviroment.w }
-
 public var height: Int { return Enviroment.h }
 
-public func random() -> Double {
-    return Double(arc4random()) / Double(RAND_MAX)
+public func random(lowerLimit: Double = 0, upperLimit: Double = 1.0) -> Double {
+    let rand = Double(arc4random_uniform(UInt32.max)) / Double(UInt32.max)
+    return lowerLimit + (Double(rand) * (upperLimit - lowerLimit))
 }
 
 public func cos(_ x: Double) -> Double {
@@ -87,7 +87,7 @@ public func ceiling(_ x: Double) -> Int {
     return Int(Darwin.ceil(x))
 }
 
-func constrain<T: Comparable>(_ x: T, low: T, high: T) -> T{
+public func constrain<T: Comparable>(_ x: T, low: T, high: T) -> T{
     if x < low {
         return low
     } else if x > high {
@@ -97,20 +97,16 @@ func constrain<T: Comparable>(_ x: T, low: T, high: T) -> T{
     }
 }
 
-let e = Darwin.M_E
-let pi = Darwin.M_PI
-let tau = Darwin.M_PI * 2
+public let e = Darwin.M_E
+public let pi = Double.pi
+public let tau = Double.pi * 2
 
-func squareRoot(_ x: Double) -> Double {
+public func squareRoot(_ x: Double) -> Double {
     return Darwin.sqrt(x)
 }
 
-func random(_ upperLimit: Double = 1.0)->Double{
-    return (Double(arc4random())/Double(RAND_MAX))*upperLimit
-}
-
 public func background(r: Double, g: Double, b: Double) {
-    addToCorrectOpList(Background(r: r,g: g,b: b))
+    addToCorrectOpList(Background(r: r, g: g, b: b))
 }
 
 public func ellipse(x: Int, y: Int, w: Int, h: Int) {
@@ -118,7 +114,7 @@ public func ellipse(x: Int, y: Int, w: Int, h: Int) {
 }
 
 public func fill(r: Double, g: Double, b: Double) {
-    addToCorrectOpList(Fill(r: r,g: g,b: b))
+    addToCorrectOpList(Fill(r: r, g: g, b: b))
 }
 
 public func stroke(r: Double, g: Double, b: Double) {
@@ -185,13 +181,9 @@ public func strokeCap(capType cap: StrokeCapType) {
     addToCorrectOpList(StrokeCap(capType: cap))
 }
 
-public func mouseX() -> Double {
-    return Enviroment.mouseX
-}
+public var mouseX: Double { return Enviroment.mouseX }
 
-public func mouseY() -> Double {
-    return Enviroment.mouseY
-}
+public var mouseY: Double { return Enviroment.mouseY }
 
 public func mouseIsPressed() ->Bool {
     return Enviroment.mouseIsPressed
