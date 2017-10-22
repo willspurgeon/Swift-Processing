@@ -16,8 +16,8 @@ open class Enviroment {
     
     static var mode: ProgramMode = .setup
     
-    static var w = 1000
-    static var h = 500
+    static var w = 100
+    static var h = 100
     
     static var mouseX: Double = 0
     static var mouseY: Double = 0

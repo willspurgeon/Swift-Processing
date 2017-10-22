@@ -23,7 +23,7 @@ class MainProgram: ProcessingView {
     
     
     override func setup() {
-        size(width: 500, height: 500)
+        size(width: 250, height: 250)
         frameRate(fps: 60)
         noStroke()
     }

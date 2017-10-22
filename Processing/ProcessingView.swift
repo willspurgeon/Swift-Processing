@@ -107,10 +107,6 @@ open class ProcessingView: NSView, UserProgram {
     }
     
     func updateViews(timer: Timer) {
-        if self.frame == NSRect.zero {
-            self.frame = NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h)
-        }
-        
         if Enviroment.mode == .setup{
             Enviroment.listOfSetUpOps = []
             self.setup()
@@ -118,7 +114,6 @@ open class ProcessingView: NSView, UserProgram {
             
             self.frame = NSRect(x: 0, y: 0, width: CGFloat(Enviroment.w), height: CGFloat(Enviroment.h))
             self.backgroundView.frame = frame
-            self.window?.setFrame(NSRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height), display: false)
             
             redrawTimer = Timer.scheduledTimer(withTimeInterval: Enviroment.frameTime, repeats: true, block: updateViews)
             redrawTimer.tolerance = 0.001
