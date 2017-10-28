@@ -8,13 +8,8 @@
 
 import AppKit
 
-struct StrokeCap: Drawable, Hashable {
-    
+struct StrokeCap: Drawable {
     let cap: NSBezierPath.LineCapStyle
-    
-    var hashValue: Int {
-        return "StrokeCap\(cap)".hashValue
-    }
     
     init(capType: StrokeCapType) {
         switch capType {
@@ -33,10 +28,6 @@ struct StrokeCap: Drawable, Hashable {
     
     func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? StrokeCap else { return false }
-        return self.hashValue == other.hashValue
+        return self.cap == other.cap
     }
-}
-
-func ==(lhs: StrokeCap, rhs: StrokeCap) -> Bool {
-    return lhs.hashValue == rhs.hashValue
 }

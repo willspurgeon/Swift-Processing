@@ -8,15 +8,15 @@
 
 import AppKit
 
-struct Ellipse: Drawable, Hashable {
-    let hashPrefix = "Ellipse".hashValue
+struct Ellipse: Drawable {
     let x: Int
     let y: Int
     let w: Int
     let h: Int
     
-    var hashValue: Int {
-        return hashPrefix ^ x.hashValue ^ y.hashValue ^ w.hashValue ^ h.hashValue
+    func isEqualTo(_ other: Any) -> Bool {
+        guard let other = other as? Ellipse else { return false }
+        return self.x == other.x && self.y == other.y && self.w == other.w && self.h == other.h
     }
     
     //Is expecting the x,y center point.
@@ -44,13 +44,4 @@ struct Ellipse: Drawable, Hashable {
             bPath.fill()
         }
     }
-    
-    func isEqualTo(_ other: Any) -> Bool {
-        guard let other = other as? Ellipse else { return false }
-        return self.hashValue == other.hashValue
-    }
-}
-
-func ==(lhs: Ellipse, rhs: Ellipse) -> Bool {
-    return lhs.hashValue == rhs.hashValue
 }

@@ -8,25 +8,13 @@
 
 import Foundation
 
-struct NoFill: Drawable, Hashable {
-    
-    var hashValue: Int {
-        get{
-            return "NoFill".hashValue
-        }
-    }
-    
+struct NoFill: Drawable {
     func drawShape() {
         Enviroment.fill = nil
     }
     
     func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? NoFill else { return false }
-        return self.hashValue == other.hashValue
+        return true
     }
-    
-}
-
-func ==(lhs: NoFill, rhs: NoFill) -> Bool {
-    return lhs.hashValue == rhs.hashValue
 }

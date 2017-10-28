@@ -10,10 +10,10 @@ import AppKit
 import Carbon
 
 open class ProcessingView: NSView, UserProgram {
+    let backingView = NSImageView()
     let drawingView = DrawingView()
-    let backgroundView = NSView()
     var redrawTimer = Timer()
-    var oldDrawQueue: [Drawable] = []
+    var oldDrawQueue: [Drawable] = [Drawable]()
     let defaultCursor = NSCursor.arrow
     
     open func setup() {}
@@ -60,11 +60,10 @@ open class ProcessingView: NSView, UserProgram {
     
     func commonSetup() {
         //TODO: Currently does not allow update mouse location when dragging.
-        let trackingArea = NSTrackingArea(rect: self.bounds, options: [NSTrackingArea.Options.activeAlways , NSTrackingArea.Options.mouseMoved, NSTrackingArea.Options.mouseEnteredAndExited,NSTrackingArea.Options.inVisibleRect], owner: self, userInfo: nil)
+        let trackingArea = NSTrackingArea(rect: self.bounds, options: [NSTrackingArea.Options.activeAlways, NSTrackingArea.Options.mouseMoved, NSTrackingArea.Options.mouseEnteredAndExited, NSTrackingArea.Options.inVisibleRect], owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
         
-        backgroundView.layer = CALayer()
-        self.addSubview(backgroundView)
+        self.addSubview(backingView)
         self.addSubview(drawingView)
         updateViews(timer: redrawTimer)
     }
@@ -73,7 +72,7 @@ open class ProcessingView: NSView, UserProgram {
         guard lhs.count == rhs.count else { return false }
         
         for (index, element) in lhs.enumerated(){
-            if !element.isEqualTo(rhs[index]){
+            if !element.isEqualTo(rhs[index]) {
                 return false
             }
         }
@@ -87,49 +86,33 @@ open class ProcessingView: NSView, UserProgram {
             oldDrawQueue = Enviroment.listOfSetUpOps
             
             self.frame = NSRect(x: 0, y: 0, width: CGFloat(Enviroment.w), height: CGFloat(Enviroment.h))
-            self.backgroundView.frame = frame
             self.drawingView.frame = frame
+            self.backingView.frame = frame
             
-            if let background = Enviroment.listOfSetUpOps.filter({ $0 is Background }).last as? Background {
-                if NSColor(red: CGFloat(background.r)/255, green: CGFloat(background.g)/255, blue: CGFloat(background.b)/255, alpha: 1.0) != Enviroment.backgroundColor {
-                    backgroundView.layer?.backgroundColor = CGColor(red: CGFloat(background.r)/255, green: CGFloat(background.g)/255, blue: CGFloat(background.b)/255, alpha: 1)
-                    backgroundView.setNeedsDisplay(NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h))
-                }
-            }
+            let image = self.image()
+            self.backingView.image = image
             
             drawingView.setNeedsDisplay(NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h))
-            backgroundView.canDrawConcurrently = true
-            
-            redrawTimer = Timer.scheduledTimer(withTimeInterval: Enviroment.frameTime, repeats: true, block: updateViews)
-            redrawTimer.tolerance = 0.001
         } else {
             Enviroment.listOfDrawOps = []
             self.draw()
             Enviroment.frameCount += 1
-        }
-        
-        if !drawableArraysAreEqual(Enviroment.listOfDrawOps, oldDrawQueue) && !Enviroment.listOfDrawOps.isEmpty {
-            if let background = Enviroment.listOfDrawOps.filter({ $0 is Background }).last as? Background {
-                if NSColor(red: CGFloat(background.r)/255, green: CGFloat(background.g)/255, blue: CGFloat(background.b)/255, alpha: 1.0) != Enviroment.backgroundColor {
-                    backgroundView.layer?.backgroundColor = CGColor(red: CGFloat(background.r)/255, green: CGFloat(background.g)/255, blue: CGFloat(background.b)/255, alpha: 1)
-                    backgroundView.setNeedsDisplay(NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h))
-                }
+            if !drawableArraysAreEqual(Enviroment.listOfDrawOps, oldDrawQueue) && !Enviroment.listOfDrawOps.isEmpty {
+                let image = self.image()
+                self.backingView.image = image
+                drawingView.setNeedsDisplay(NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h))
             }
-            
-            drawingView.setNeedsDisplay(NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h))
         }
     }
 }
 
 class DrawingView: NSView {
-    var oldTime = Date().timeIntervalSince1970
     open override func draw(_ dirtyRect: NSRect) {
+        guard let superView = self.superview as? ProcessingView else { return }
+        
         let currentContext = NSGraphicsContext.current
         currentContext?.shouldAntialias = false
-        
-        let time = Date().timeIntervalSince1970 - oldTime
-        print("FPS: \(1/(time/1000))")
-        oldTime = time
+    
         if Enviroment.mode == .setup {
             for op in Enviroment.listOfSetUpOps {
                 op.drawShape()
@@ -137,13 +120,33 @@ class DrawingView: NSView {
             
             Enviroment.mode = .draw
             Enviroment.listOfSetUpOps = []
+            
+            superView.redrawTimer = Timer.scheduledTimer(withTimeInterval: Enviroment.frameTime, repeats: true, block: superView.updateViews)
+            superView.redrawTimer.tolerance = 0.001
         } else {
             for op in Enviroment.listOfDrawOps {
                 op.drawShape()
             }
             
-            let superView = self.superview as! ProcessingView
             superView.oldDrawQueue = Enviroment.listOfDrawOps
         }
+        
     }
+}
+
+extension NSView {
+    
+    /// Get `NSImage` representation of the view.
+    ///
+    /// - Returns: `NSImage` of view
+    
+    func image() -> NSImage? {
+        if let imageRepresentation = bitmapImageRepForCachingDisplay(in: bounds) {
+            cacheDisplay(in: bounds, to: imageRepresentation)
+            return NSImage(cgImage: imageRepresentation.cgImage!, size: bounds.size)
+        }
+        
+        return nil
+    }
+    
 }

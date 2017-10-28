@@ -22,22 +22,21 @@ class MainProgram: ProcessingView {
     var diamHit = 0.0
     
     override func setup() {
-        size(width: 250, height: 250)
+        size(width: 500, height: 500)
         noStroke()
         fill(r: 0, g: 0, b: 0)
         background(r: 123, g: 30, b: 240)
-        for i in 0...500 {
-            rectangle(x: i, y: i, w: 100, h: 100)
-        }
-        frameRate(fps: 24)
+        frameRate(fps: 30)
     }
-    
-    override func draw() {
-        fill(r: 50, g: 0, b: 100)
-//        for i in 0...500 {
-            rectangle(x: 100, y: 100, w: 100, h: 100)
-//        }
 
+    var i = 0
+    override func draw() {
+        background(r: 123, g: 30, b: 240)
+        
+        if i != 500 {
+            i += 1
+        }
+        rectangle(x: i, y: i, w: 100, h: 100)
     }
     
 //    override func setup() {

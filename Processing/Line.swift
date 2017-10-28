@@ -8,17 +8,11 @@
 
 import AppKit
 
-struct Line: Drawable, Hashable {
+struct Line: Drawable {
     let x1: Double
     let y1: Double
     let x2: Double
     let y2: Double
-    
-    var hashValue: Int {
-        get{
-            return "Line\(x1),\(y1),\(x2),\(y2)".hashValue
-        }
-    }
     
     init(x1: Double, y1: Double, x2: Double, y2: Double) {
         self.x1 = x1
@@ -43,10 +37,7 @@ struct Line: Drawable, Hashable {
     
     func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? Line else { return false }
-        return self.hashValue == other.hashValue
+        return self.x1 == other.x1 && self.x2 == other.x2 && self.y1 == other.y1 && self.y2 == other.y2
     }
 }
 
-func ==(lhs: Line, rhs: Line) -> Bool {
-    return lhs.hashValue == rhs.hashValue
-}

@@ -9,16 +9,10 @@
 import AppKit
 import Foundation
 
-struct Fill: Drawable, Hashable {
+struct Fill: Drawable {
     let r: Double
     let g: Double
     let b: Double
-    
-    var hashValue: Int {
-        get{
-            return "Fill\(r),\(g),\(b)".hashValue
-        }
-    }
     
     init(r: Double, g: Double, b: Double) {
         self.r = r
@@ -34,10 +28,6 @@ struct Fill: Drawable, Hashable {
     
     func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? Fill else { return false }
-        return self.hashValue == other.hashValue
+        return self.r == other.r && self.g == other.g && self.b == other.b
     }
-}
-
-func ==(lhs : Fill, rhs: Fill) -> Bool {
-    return lhs.hashValue == rhs.hashValue
 }

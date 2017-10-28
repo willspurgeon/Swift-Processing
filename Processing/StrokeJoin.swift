@@ -8,13 +8,8 @@
 
 import AppKit
 
-struct StrokeJoin: Drawable, Hashable {
-    
+struct StrokeJoin: Drawable {
     let joint: NSBezierPath.LineJoinStyle
-    
-    var hashValue: Int {
-        return "StrokeJoin\(joint)".hashValue
-    }
     
     init(jointType: JointType) {
         switch jointType {
@@ -33,10 +28,6 @@ struct StrokeJoin: Drawable, Hashable {
     
     func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? StrokeJoin else { return false }
-        return self.hashValue == other.hashValue
+        return self.joint == other.joint
     }
-}
-
-func ==(lhs: StrokeJoin, rhs: StrokeJoin) -> Bool {
-    return lhs.hashValue == rhs.hashValue
 }

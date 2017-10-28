@@ -8,16 +8,11 @@
 
 import AppKit
 
-struct Rectangle: Drawable, Hashable {
-    let hashPrefix = "Rectangle".hashValue
+struct Rectangle: Drawable {
     let x: Int
     let y: Int
     let w: Int
     let h: Int
-    
-    var hashValue: Int {
-        return hashPrefix^x.hashValue^y.hashValue^w.hashValue^h.hashValue
-    }
     
     init(x: Int, y: Int, w: Int, h: Int) {
         self.x = x
@@ -44,10 +39,7 @@ struct Rectangle: Drawable, Hashable {
     
     func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? Rectangle else { return false }
-        return self.hashValue == other.hashValue
+        return self.x == other.x && self.y == other.y && self.w == other.w && self.h == other.h
     }
 }
 
-func ==(lhs: Rectangle, rhs: Rectangle) -> Bool {
-    return lhs.hashValue == rhs.hashValue
-}

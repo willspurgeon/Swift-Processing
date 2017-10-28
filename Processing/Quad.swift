@@ -8,7 +8,7 @@
 
 import AppKit
 
-struct Quad: Drawable, Hashable {
+struct Quad: Drawable {
     let x1: Double
     let y1: Double
     let x2: Double
@@ -17,10 +17,6 @@ struct Quad: Drawable, Hashable {
     let y3: Double
     let x4: Double
     let y4: Double
-    
-    var hashValue: Int {
-        return "Quad\(x1),\(y1),\(x1),\(y2),\(x3),\(y3),\(x4),\(y4)".hashValue
-    }
     
     init(x1: Double, y1: Double, x2: Double, y2: Double, x3: Double, y3: Double, x4: Double, y4: Double) {
         self.x1 = x1
@@ -59,10 +55,13 @@ struct Quad: Drawable, Hashable {
     
     func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? Quad else { return false }
-        return self.hashValue == other.hashValue
+        return self.x1 == other.x1 &&
+            self.x2 == other.x2 &&
+            self.x3 == other.x3 &&
+            self.x4 == other.x4 &&
+            self.y1 == other.y1 &&
+            self.y2 == other.y2 &&
+            self.y3 == other.y3 &&
+            self.y4 == other.y4
     }
-}
-
-func ==(lhs: Quad, rhs: Quad) -> Bool {
-    return lhs.hashValue == rhs.hashValue
 }

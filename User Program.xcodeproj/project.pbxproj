@@ -141,11 +141,11 @@
 		BE69A9B11F9BF0E3005BABC2 /* Processing */ = {
 			isa = PBXGroup;
 			children = (
-				BEC7EA961D2B2E3200D09466 /* Background.swift */,
-				BEC7EA971D2B2E3200D09466 /* ProcessingView.swift */,
 				BEC7EA981D2B2E3200D09466 /* Drawable.swift */,
-				BEC7EA991D2B2E3200D09466 /* Ellipse.swift */,
+				BEC7EA971D2B2E3200D09466 /* ProcessingView.swift */,
 				BEC7EA9A1D2B2E3200D09466 /* Enviroment.swift */,
+				BEC7EA961D2B2E3200D09466 /* Background.swift */,
+				BEC7EA991D2B2E3200D09466 /* Ellipse.swift */,
 				BEC7EA9B1D2B2E3200D09466 /* Fill.swift */,
 				BEC7EA9C1D2B2E3200D09466 /* Line.swift */,
 				BEC7EA9E1D2B2E3200D09466 /* NoFill.swift */,

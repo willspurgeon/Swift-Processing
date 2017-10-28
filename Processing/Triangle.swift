@@ -8,17 +8,13 @@
 
 import AppKit
 
-struct Triangle: Drawable, Hashable {
+struct Triangle: Drawable {
     let x1: Double
     let y1: Double
     let x2: Double
     let y2: Double
     let x3: Double
     let y3: Double
-    
-    var hashValue: Int {
-        return "Triangle\(x1),\(y1),\(x1),\(y2),\(x3),\(y3)".hashValue
-    }
     
     init(x1: Double, y1: Double, x2: Double, y2: Double, x3: Double, y3: Double) {
         self.x1 = x1
@@ -51,12 +47,9 @@ struct Triangle: Drawable, Hashable {
             bPath.fill()
         }
     }
+    
     func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? Triangle else { return false }
-        return self.hashValue == other.hashValue
+        return self.x1 == other.x1 && self.x2 == other.x2 && self.x3 == other.x3 && self.y1 == other.y1 && self.y2 == other.y2 && self.y3 == other.y3
     }
-}
-
-func ==(lhs: Triangle, rhs: Triangle) -> Bool {
-    return lhs.hashValue == rhs.hashValue
 }

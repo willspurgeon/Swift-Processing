@@ -8,12 +8,8 @@
 
 import AppKit
 
-struct StrokeWeight: Drawable, Hashable {
+struct StrokeWeight: Drawable {
     let weight: Double
-    
-    var hashValue: Int {
-        return "StrokeWeight\(weight)".hashValue
-    }
     
     init(weight: Double) {
         self.weight = weight
@@ -21,15 +17,10 @@ struct StrokeWeight: Drawable, Hashable {
     
     func drawShape() {
         Enviroment.strokeWeight = weight
-        
     }
     
     func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? StrokeWeight else { return false }
-        return self.hashValue == other.hashValue
+        return self.weight == other.weight
     }
-}
-
-func ==(lhs: StrokeWeight, rhs: StrokeWeight) -> Bool {
-    return lhs.hashValue == rhs.hashValue
 }

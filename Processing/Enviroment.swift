@@ -38,10 +38,10 @@ class Enviroment {
     static var mouseLocation: NSPoint = NSPoint()
     static var mouseIsInView: Bool = false
     
-    static var listOfOps: [Drawable] = [Drawable]()
+    static var listOfOps = [Drawable]()
     
-    static var listOfSetUpOps: [Drawable] = [Drawable]()
-    static var listOfDrawOps: [Drawable] = [Drawable]()
+    static var listOfSetUpOps = [Drawable]()
+    static var listOfDrawOps = [Drawable]()
     
     static var frameRate: Double = 30.0
     static var frameTime: Double { return 1.0 / frameRate }

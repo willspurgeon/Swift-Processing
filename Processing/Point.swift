@@ -8,19 +8,13 @@
 
 import AppKit
 
-struct Point: Drawable, Hashable {
+struct Point: Drawable {
     let x: Double
     let y: Double
     
     init(x: Double, y: Double) {
         self.x = x
         self.y = y
-    }
-    
-    var hashValue: Int {
-        get{
-            return "Point\(x),\(y)".hashValue
-        }
     }
     
     func drawShape() {
@@ -34,12 +28,9 @@ struct Point: Drawable, Hashable {
             bPath.stroke()
         }
     }
+    
     func isEqualTo(_ other: Any) -> Bool {
         guard let other = other as? Point else { return false }
-        return self.hashValue == other.hashValue
+        return self.x == other.x && self.y == other.y
     }
-}
-
-func ==(lhs: Point, rhs: Point) -> Bool {
-    return lhs.hashValue == rhs.hashValue
 }
