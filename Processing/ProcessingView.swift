@@ -10,9 +10,10 @@ import AppKit
 import Carbon
 
 open class ProcessingView: NSView, UserProgram {
-    let backgroundView: NSView = NSView()
-    var redrawTimer: Timer = Timer()
-    var oldDrawQueue: [Drawable]! = nil
+    let drawingView = DrawingView()
+    let backgroundView = NSView()
+    var redrawTimer = Timer()
+    var oldDrawQueue: [Drawable] = []
     let defaultCursor = NSCursor.arrow
     
     open func setup() {}
@@ -62,6 +63,9 @@ open class ProcessingView: NSView, UserProgram {
         let trackingArea = NSTrackingArea(rect: self.bounds, options: [NSTrackingArea.Options.activeAlways , NSTrackingArea.Options.mouseMoved, NSTrackingArea.Options.mouseEnteredAndExited,NSTrackingArea.Options.inVisibleRect], owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
         
+        backgroundView.layer = CALayer()
+        self.addSubview(backgroundView)
+        self.addSubview(drawingView)
         updateViews(timer: redrawTimer)
     }
     
@@ -76,36 +80,6 @@ open class ProcessingView: NSView, UserProgram {
         return true
     }
     
-    var oldTime = Date().timeIntervalSince1970
-    open override func draw(_ dirtyRect: NSRect) {
-        let time = Date().timeIntervalSince1970 - oldTime
-        print("FPS: \(1/(time/1000))")
-        oldTime = time
-        if Enviroment.mode == .setup {
-            let currentContext = NSGraphicsContext.current
-            currentContext?.shouldAntialias = false
-            
-            //Set default background color
-            Enviroment.backgroundColor.set()
-            
-            for op in Enviroment.listOfSetUpOps{
-                op.drawShape()
-            }
-            
-            Enviroment.listOfSetUpOps = []
-            Enviroment.mode = .draw
-        } else {
-            let currentContext = NSGraphicsContext.current
-            currentContext?.shouldAntialias = false
-            
-            for op in Enviroment.listOfDrawOps {
-                op.drawShape()
-            }
-            
-            oldDrawQueue = Enviroment.listOfDrawOps
-        }
-    }
-    
     func updateViews(timer: Timer) {
         if Enviroment.mode == .setup{
             Enviroment.listOfSetUpOps = []
@@ -114,6 +88,17 @@ open class ProcessingView: NSView, UserProgram {
             
             self.frame = NSRect(x: 0, y: 0, width: CGFloat(Enviroment.w), height: CGFloat(Enviroment.h))
             self.backgroundView.frame = frame
+            self.drawingView.frame = frame
+            
+            if let background = Enviroment.listOfSetUpOps.filter({ $0 is Background }).last as? Background {
+                if NSColor(red: CGFloat(background.r)/255, green: CGFloat(background.g)/255, blue: CGFloat(background.b)/255, alpha: 1.0) != Enviroment.backgroundColor {
+                    backgroundView.layer?.backgroundColor = CGColor(red: CGFloat(background.r)/255, green: CGFloat(background.g)/255, blue: CGFloat(background.b)/255, alpha: 1)
+                    backgroundView.setNeedsDisplay(NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h))
+                }
+            }
+            
+            drawingView.setNeedsDisplay(NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h))
+            backgroundView.canDrawConcurrently = true
             
             redrawTimer = Timer.scheduledTimer(withTimeInterval: Enviroment.frameTime, repeats: true, block: updateViews)
             redrawTimer.tolerance = 0.001
@@ -123,15 +108,42 @@ open class ProcessingView: NSView, UserProgram {
             Enviroment.frameCount += 1
         }
         
-        
-        if !drawableArraysAreEqual(Enviroment.listOfDrawOps, oldDrawQueue) {
+        if !drawableArraysAreEqual(Enviroment.listOfDrawOps, oldDrawQueue) && !Enviroment.listOfDrawOps.isEmpty {
             if let background = Enviroment.listOfDrawOps.filter({ $0 is Background }).last as? Background {
                 if NSColor(red: CGFloat(background.r)/255, green: CGFloat(background.g)/255, blue: CGFloat(background.b)/255, alpha: 1.0) != Enviroment.backgroundColor {
-                    backgroundView.layer?.backgroundColor = CGColor(red: CGFloat(background.r), green: CGFloat(background.g), blue: CGFloat(background.b), alpha: 1)
+                    backgroundView.layer?.backgroundColor = CGColor(red: CGFloat(background.r)/255, green: CGFloat(background.g)/255, blue: CGFloat(background.b)/255, alpha: 1)
+                    backgroundView.setNeedsDisplay(NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h))
                 }
             }
             
-            self.setNeedsDisplay(NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h))
+            drawingView.setNeedsDisplay(NSRect(x: 0, y: 0, width: Enviroment.w, height: Enviroment.h))
+        }
+    }
+}
+
+class DrawingView: NSView {
+    var oldTime = Date().timeIntervalSince1970
+    open override func draw(_ dirtyRect: NSRect) {
+        let currentContext = NSGraphicsContext.current
+        currentContext?.shouldAntialias = false
+        
+        let time = Date().timeIntervalSince1970 - oldTime
+        print("FPS: \(1/(time/1000))")
+        oldTime = time
+        if Enviroment.mode == .setup {
+            for op in Enviroment.listOfSetUpOps {
+                op.drawShape()
+            }
+            
+            Enviroment.mode = .draw
+            Enviroment.listOfSetUpOps = []
+        } else {
+            for op in Enviroment.listOfDrawOps {
+                op.drawShape()
+            }
+            
+            let superView = self.superview as! ProcessingView
+            superView.oldDrawQueue = Enviroment.listOfDrawOps
         }
     }
 }

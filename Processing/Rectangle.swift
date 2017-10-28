@@ -27,7 +27,7 @@ struct Rectangle: Drawable, Hashable {
     }
     
     func drawShape() {
-        let bPath:NSBezierPath = NSBezierPath(rect: NSRect(x: x, y: y, width: w, height: h))
+        let bPath = NSBezierPath(rect: NSRect(x: x, y: y, width: w, height: h))
         bPath.lineJoinStyle = Enviroment.jointType
         bPath.lineCapStyle = Enviroment.capType
         
