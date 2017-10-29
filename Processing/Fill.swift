@@ -7,7 +7,6 @@
 //
 
 import AppKit
-import Foundation
 
 struct Fill: Drawable {
     let r: Double

@@ -12,8 +12,9 @@ import XCTest
 class ProcessingTests: XCTestCase {
     
     override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        Enviroment.listOfSetUpOps = []
+        Enviroment.listOfDrawOps = []
+        Enviroment.mode = .setup
     }
     
     override func tearDown() {
@@ -21,16 +22,24 @@ class ProcessingTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testRectangle() {
+        rectangle(x: 15, y: 10, w: 20, h: 25)
+        XCTAssertTrue(Enviroment.listOfSetUpOps.contains(where: { $0.isEqualTo(Rectangle(x: 15, y: 10, w: 20, h: 25)) }))
+        
+        XCTAssertEqual(Enviroment.listOfDrawOps.count, 0)
+        Enviroment.mode = .draw
+        rectangle(x: 15, y: 10, w: 20, h: 25)
+        XCTAssertTrue(Enviroment.listOfDrawOps.contains(where: { $0.isEqualTo(Rectangle(x: 15, y: 10, w: 20, h: 25)) }))
+        XCTAssertTrue(drawableArraysAreEqual(Enviroment.listOfDrawOps, [Rectangle(x: 15, y: 10, w: 20, h: 25)]))
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testDrawableArraysAreEqual() {
+        XCTAssertTrue(drawableArraysAreEqual([], []))
+        
+        XCTAssertFalse(drawableArraysAreEqual([Rectangle(x: 15, y: 10, w: 20, h: 25)], []))
+        XCTAssertFalse(drawableArraysAreEqual([Rectangle(x: 15, y: 10, w: 20, h: 25)], [Rectangle(x: 16, y: 10, w: 20, h: 25)]))
+        XCTAssertTrue(drawableArraysAreEqual([Rectangle(x: 15, y: 10, w: 20, h: 25)], [Rectangle(x: 15, y: 10, w: 20, h: 25)]))
     }
+    
     
 }

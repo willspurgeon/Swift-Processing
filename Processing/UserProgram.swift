@@ -193,7 +193,7 @@ public var mouseX: Double { return Enviroment.mouseX }
 
 public var mouseY: Double { return Enviroment.mouseY }
 
-public func mouseIsPressed() ->Bool {
+public func mouseIsPressed() -> Bool {
     return Enviroment.mouseIsPressed
 }
 

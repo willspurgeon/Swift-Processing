@@ -7,7 +7,6 @@
 //
 
 import AppKit
-import Carbon
 
 open class ProcessingView: NSView, UserProgram {
     let backingView = NSImageView()
@@ -43,7 +42,6 @@ open class ProcessingView: NSView, UserProgram {
     override open func mouseExited(with theEvent: NSEvent) {
         Enviroment.mouseIsInView = false
         defaultCursor.set()
-        
     }
     
     override open func mouseDragged(with theEvent: NSEvent) {
@@ -66,17 +64,6 @@ open class ProcessingView: NSView, UserProgram {
         self.addSubview(backingView)
         self.addSubview(drawingView)
         updateViews(timer: redrawTimer)
-    }
-    
-    func drawableArraysAreEqual(_ lhs: [Drawable], _ rhs: [Drawable]) -> Bool{
-        guard lhs.count == rhs.count else { return false }
-        
-        for (index, element) in lhs.enumerated(){
-            if !element.isEqualTo(rhs[index]) {
-                return false
-            }
-        }
-        return true
     }
     
     func updateViews(timer: Timer) {
@@ -130,7 +117,6 @@ class DrawingView: NSView {
             
             superView.oldDrawQueue = Enviroment.listOfDrawOps
         }
-        
     }
 }
 
