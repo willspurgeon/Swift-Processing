@@ -13,6 +13,12 @@ import XCTest
 class DrawingTests: XCTestCase {
     var view: ProcessingView!
     
+    override func setUp() {
+        Enviroment.mode = .setup
+        Enviroment.listOfSetUpOps = []
+        Enviroment.listOfDrawOps = []
+    }
+    
     func saveImage() {
         let dirPath = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("image.tiff")
         let image = view.image()?.tiffRepresentation
