@@ -318,7 +318,7 @@ public struct Vector: Equatable {
     }
     
     @discardableResult
-    mutating func limit(_ limit: Double) -> Vector{
+    mutating func limit(_ limit: Double) -> Vector {
         if magnitudeSquared > limit * limit{
             normalize()
             self *= limit

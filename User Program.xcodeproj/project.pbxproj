@@ -31,9 +31,13 @@
 		BE69A9DF1F9BF110005BABC2 /* Fill.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9B1D2B2E3200D09466 /* Fill.swift */; };
 		BE69A9E11F9BFCE3005BABC2 /* VectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69A9E01F9BFCE3005BABC2 /* VectorTests.swift */; };
 		BE69A9E31F9D1631005BABC2 /* UtilityFunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69A9E21F9D1630005BABC2 /* UtilityFunctionTests.swift */; };
+		BE8A7BB91FA643A40057438F /* lineImage.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BE8A7BB81FA643A40057438F /* lineImage.tiff */; };
+		BE8A7BBB1FA647E00057438F /* manyShapesImage.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BE8A7BBA1FA647E00057438F /* manyShapesImage.tiff */; };
 		BE9693851FA633790045D60F /* DrawingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9693841FA633790045D60F /* DrawingTests.swift */; };
 		BE9693891FA63C4D0045D60F /* rectangleImage.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BE9693871FA63A570045D60F /* rectangleImage.tiff */; };
 		BE96938B1FA63F420045D60F /* ellipseImage.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BE96938A1FA63F420045D60F /* ellipseImage.tiff */; };
+		BE96938D1FA641D10045D60F /* quadImage.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BE96938C1FA641D00045D60F /* quadImage.tiff */; };
+		BE96938F1FA642670045D60F /* triangleImage.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BE96938E1FA642670045D60F /* triangleImage.tiff */; };
 		BEC7EA8A1D2B2DFA00D09466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC7EA891D2B2DFA00D09466 /* Assets.xcassets */; };
 		BEC7EA8D1D2B2DFA00D09466 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEC7EA8B1D2B2DFA00D09466 /* MainMenu.xib */; };
 		BEC7EA951D2B2E1D00D09466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA941D2B2E1D00D09466 /* AppDelegate.swift */; };
@@ -88,9 +92,13 @@
 		BE69A9C11F9BF0E4005BABC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE69A9E01F9BFCE3005BABC2 /* VectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorTests.swift; sourceTree = "<group>"; };
 		BE69A9E21F9D1630005BABC2 /* UtilityFunctionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctionTests.swift; sourceTree = "<group>"; };
+		BE8A7BB81FA643A40057438F /* lineImage.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = lineImage.tiff; sourceTree = "<group>"; };
+		BE8A7BBA1FA647E00057438F /* manyShapesImage.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = manyShapesImage.tiff; sourceTree = "<group>"; };
 		BE9693841FA633790045D60F /* DrawingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingTests.swift; sourceTree = "<group>"; };
 		BE9693871FA63A570045D60F /* rectangleImage.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = rectangleImage.tiff; sourceTree = "<group>"; };
 		BE96938A1FA63F420045D60F /* ellipseImage.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = ellipseImage.tiff; sourceTree = "<group>"; };
+		BE96938C1FA641D00045D60F /* quadImage.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = quadImage.tiff; sourceTree = "<group>"; };
+		BE96938E1FA642670045D60F /* triangleImage.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = triangleImage.tiff; sourceTree = "<group>"; };
 		BEC7EA841D2B2DFA00D09466 /* User Program.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "User Program.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC7EA891D2B2DFA00D09466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEC7EA8C1D2B2DFA00D09466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -185,7 +193,11 @@
 			isa = PBXGroup;
 			children = (
 				BE96938A1FA63F420045D60F /* ellipseImage.tiff */,
+				BE8A7BB81FA643A40057438F /* lineImage.tiff */,
+				BE96938C1FA641D00045D60F /* quadImage.tiff */,
+				BE8A7BBA1FA647E00057438F /* manyShapesImage.tiff */,
 				BE9693871FA63A570045D60F /* rectangleImage.tiff */,
+				BE96938E1FA642670045D60F /* triangleImage.tiff */,
 			);
 			path = "View Images";
 			sourceTree = "<group>";
@@ -350,7 +362,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE96938F1FA642670045D60F /* triangleImage.tiff in Resources */,
+				BE8A7BB91FA643A40057438F /* lineImage.tiff in Resources */,
 				BE96938B1FA63F420045D60F /* ellipseImage.tiff in Resources */,
+				BE96938D1FA641D10045D60F /* quadImage.tiff in Resources */,
+				BE8A7BBB1FA647E00057438F /* manyShapesImage.tiff in Resources */,
 				BE9693891FA63C4D0045D60F /* rectangleImage.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

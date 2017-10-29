@@ -14,7 +14,9 @@ struct Aliasing: Drawable {
     }
     
     func drawShape() {
-        Enviroment.shouldAntiAlias = self.shouldAntiAlias
+        Enviroment.shouldAntiAlias = shouldAntiAlias
+        let currentContext = NSGraphicsContext.current
+        currentContext?.shouldAntialias = shouldAntiAlias
     }
     
     func isEqualTo(_ other: Any) -> Bool {

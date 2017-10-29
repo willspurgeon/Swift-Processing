@@ -32,9 +32,9 @@ class Enviroment {
     static var backgroundColor = NSColor.lightGray
     static var stroke: NSColor? = NSColor.black
     static var fill: NSColor? = NSColor.white
-    static var strokeWeight: Double = 0
-    static var jointType: NSBezierPath.LineJoinStyle = .miterLineJoinStyle
-    static var capType: NSBezierPath.LineCapStyle = .roundLineCapStyle
+    static var strokeWeight = 0.0
+    static var jointType = NSBezierPath.LineJoinStyle.miterLineJoinStyle
+    static var capType = NSBezierPath.LineCapStyle.roundLineCapStyle
     
     static var mouseLocation: NSPoint = NSPoint()
     static var mouseIsInView: Bool = false
