@@ -30,13 +30,12 @@ class MainProgram: ProcessingView {
     }
 
     var i = 0
+    var alias = true
     override func draw() {
         background(r: 123, g: 30, b: 240)
-        
-        if i != 500 {
-            i += 1
-        }
-        rectangle(x: i, y: i, w: 100, h: 100)
+        antiAliasing(on: alias)
+        ellipse(x: 200, y: 200, w: 200, h: 200)
+        alias = !alias
     }
     
 //    override func setup() {

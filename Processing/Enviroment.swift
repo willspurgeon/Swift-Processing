@@ -28,6 +28,7 @@ class Enviroment {
         }
     }
     
+    static var shouldAntiAlias = false
     static var backgroundColor = NSColor.lightGray
     static var stroke: NSColor? = NSColor.black
     static var fill: NSColor? = NSColor.white
@@ -37,8 +38,6 @@ class Enviroment {
     
     static var mouseLocation: NSPoint = NSPoint()
     static var mouseIsInView: Bool = false
-    
-    static var listOfOps = [Drawable]()
     
     static var listOfSetUpOps = [Drawable]()
     static var listOfDrawOps = [Drawable]()

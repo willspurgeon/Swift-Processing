@@ -80,7 +80,7 @@ open class ProcessingView: NSView, UserProgram {
     }
     
     func updateViews(timer: Timer) {
-        if Enviroment.mode == .setup{
+        if Enviroment.mode == .setup {
             Enviroment.listOfSetUpOps = []
             self.setup()
             oldDrawQueue = Enviroment.listOfSetUpOps
@@ -111,7 +111,7 @@ class DrawingView: NSView {
         guard let superView = self.superview as? ProcessingView else { return }
         
         let currentContext = NSGraphicsContext.current
-        currentContext?.shouldAntialias = false
+        currentContext?.shouldAntialias = Enviroment.shouldAntiAlias
     
         if Enviroment.mode == .setup {
             for op in Enviroment.listOfSetUpOps {

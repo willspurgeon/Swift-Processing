@@ -165,6 +165,10 @@ public func triangle(x1: Double, y1: Double, x2: Double, y2: Double, x3: Double,
     addToCorrectOpList(Triangle(x1: x1, y1: y1, x2: x2, y2: y2, x3: x3, y3: y3))
 }
 
+public func antiAliasing(on: Bool) {
+    addToCorrectOpList(Aliasing(shouldAntiAlias: on))
+}
+
 public enum JointType {
     case miter
     case bevel

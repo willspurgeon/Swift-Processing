@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE0C11AB1FA629D400EAB06F /* Aliasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0C11AA1FA629D400EAB06F /* Aliasing.swift */; };
 		BE69A9B91F9BF0E4005BABC2 /* Processing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE69A9B01F9BF0E3005BABC2 /* Processing.framework */; };
 		BE69A9C01F9BF0E4005BABC2 /* ProcessingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69A9BF1F9BF0E4005BABC2 /* ProcessingTests.swift */; };
 		BE69A9C21F9BF0E4005BABC2 /* Processing.h in Headers */ = {isa = PBXBuildFile; fileRef = BE69A9B21F9BF0E3005BABC2 /* Processing.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -77,6 +78,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BE0C11AA1FA629D400EAB06F /* Aliasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliasing.swift; sourceTree = "<group>"; };
 		BE69A9B01F9BF0E3005BABC2 /* Processing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Processing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE69A9B21F9BF0E3005BABC2 /* Processing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Processing.h; sourceTree = "<group>"; };
 		BE69A9B31F9BF0E3005BABC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				BEC7EAA01D2B2E3200D09466 /* Point.swift */,
 				BEC7EAA11D2B2E3200D09466 /* Quad.swift */,
 				BEC7EAA21D2B2E3200D09466 /* Rectangle.swift */,
+				BE0C11AA1FA629D400EAB06F /* Aliasing.swift */,
 				BEC7EAA31D2B2E3200D09466 /* Stroke.swift */,
 				BEC7EAA41D2B2E3200D09466 /* StrokeCap.swift */,
 				BEC7EAA51D2B2E3200D09466 /* StrokeJoin.swift */,
@@ -369,6 +372,7 @@
 				BE69A9D81F9BF107005BABC2 /* StrokeCap.swift in Sources */,
 				BE69A9DD1F9BF110005BABC2 /* Drawable.swift in Sources */,
 				BE69A9D11F9BF107005BABC2 /* Stroke.swift in Sources */,
+				BE0C11AB1FA629D400EAB06F /* Aliasing.swift in Sources */,
 				BE69A9D51F9BF107005BABC2 /* Rectangle.swift in Sources */,
 				BE69A9D61F9BF107005BABC2 /* UserProgram.swift in Sources */,
 				BE69A9DF1F9BF110005BABC2 /* Fill.swift in Sources */,
