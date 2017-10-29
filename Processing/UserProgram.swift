@@ -118,11 +118,11 @@ public func ellipse(x: Int, y: Int, w: Int, h: Int) {
 }
 
 public func fill(r: Double, g: Double, b: Double) {
-    addToCorrectOpList(Fill(r: r, g: g, b: b))
+    addToCorrectOpList(Fill(r: r, g: g, b: b, disabled: false))
 }
 
 public func stroke(r: Double, g: Double, b: Double) {
-    addToCorrectOpList(Stroke(r: r,g: g,b: b))
+    addToCorrectOpList(Stroke(r: r, g: g, b: b, disabled: false))
 }
 
 public func strokeWeight(_ weight: Double) {
@@ -154,11 +154,11 @@ public func frameRate(fps: Double) {
 }
 
 public func noStroke() {
-    addToCorrectOpList(NoStroke())
+    addToCorrectOpList(Stroke(r: 0, g: 0, b: 0, disabled: true))
 }
 
 public func noFill() {
-    addToCorrectOpList(NoFill())
+    addToCorrectOpList(Fill(r: 0, g: 0, b: 0, disabled: true))
 }
 
 public func triangle(x1: Double, y1: Double, x2: Double, y2: Double, x3: Double, y3: Double) {

@@ -17,12 +17,10 @@
 		BE69A9CF1F9BF107005BABC2 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA01D2B2E3200D09466 /* Point.swift */; };
 		BE69A9D01F9BF107005BABC2 /* Quad.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA11D2B2E3200D09466 /* Quad.swift */; };
 		BE69A9D11F9BF107005BABC2 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA31D2B2E3200D09466 /* Stroke.swift */; };
-		BE69A9D21F9BF107005BABC2 /* NoFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9E1D2B2E3200D09466 /* NoFill.swift */; };
 		BE69A9D31F9BF107005BABC2 /* StrokeJoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA51D2B2E3200D09466 /* StrokeJoin.swift */; };
 		BE69A9D41F9BF107005BABC2 /* StrokeWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA61D2B2E3200D09466 /* StrokeWeight.swift */; };
 		BE69A9D51F9BF107005BABC2 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA21D2B2E3200D09466 /* Rectangle.swift */; };
 		BE69A9D61F9BF107005BABC2 /* UserProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA81D2B2E3200D09466 /* UserProgram.swift */; };
-		BE69A9D71F9BF107005BABC2 /* NoStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9F1D2B2E3200D09466 /* NoStroke.swift */; };
 		BE69A9D81F9BF107005BABC2 /* StrokeCap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EAA41D2B2E3200D09466 /* StrokeCap.swift */; };
 		BE69A9D91F9BF110005BABC2 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA961D2B2E3200D09466 /* Background.swift */; };
 		BE69A9DA1F9BF110005BABC2 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7EA9C1D2B2E3200D09466 /* Line.swift */; };
@@ -100,8 +98,6 @@
 		BEC7EA9B1D2B2E3200D09466 /* Fill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fill.swift; sourceTree = "<group>"; };
 		BEC7EA9C1D2B2E3200D09466 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		BEC7EA9D1D2B2E3200D09466 /* MainProgram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainProgram.swift; sourceTree = "<group>"; };
-		BEC7EA9E1D2B2E3200D09466 /* NoFill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoFill.swift; sourceTree = "<group>"; };
-		BEC7EA9F1D2B2E3200D09466 /* NoStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoStroke.swift; sourceTree = "<group>"; };
 		BEC7EAA01D2B2E3200D09466 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		BEC7EAA11D2B2E3200D09466 /* Quad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quad.swift; sourceTree = "<group>"; };
 		BEC7EAA21D2B2E3200D09466 /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
@@ -150,8 +146,6 @@
 				BEC7EA991D2B2E3200D09466 /* Ellipse.swift */,
 				BEC7EA9B1D2B2E3200D09466 /* Fill.swift */,
 				BEC7EA9C1D2B2E3200D09466 /* Line.swift */,
-				BEC7EA9E1D2B2E3200D09466 /* NoFill.swift */,
-				BEC7EA9F1D2B2E3200D09466 /* NoStroke.swift */,
 				BEC7EAA01D2B2E3200D09466 /* Point.swift */,
 				BEC7EAA11D2B2E3200D09466 /* Quad.swift */,
 				BEC7EAA21D2B2E3200D09466 /* Rectangle.swift */,
@@ -363,9 +357,7 @@
 				BE69A9D41F9BF107005BABC2 /* StrokeWeight.swift in Sources */,
 				BE69A9D31F9BF107005BABC2 /* StrokeJoin.swift in Sources */,
 				BE69A9CF1F9BF107005BABC2 /* Point.swift in Sources */,
-				BE69A9D71F9BF107005BABC2 /* NoStroke.swift in Sources */,
 				BE69A9DC1F9BF110005BABC2 /* ProcessingView.swift in Sources */,
-				BE69A9D21F9BF107005BABC2 /* NoFill.swift in Sources */,
 				BE69A9CE1F9BF107005BABC2 /* Triangle.swift in Sources */,
 				BE69A9DA1F9BF110005BABC2 /* Line.swift in Sources */,
 				BE69A9DB1F9BF110005BABC2 /* Ellipse.swift in Sources */,
