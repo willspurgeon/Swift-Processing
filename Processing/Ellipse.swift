@@ -22,8 +22,8 @@ struct Ellipse: Drawable {
     //Is expecting the x,y center point.
     //The initilizer does the conversion.
     init(x: Int, y: Int, w: Int, h: Int) {
-        self.x = x-(w/2)
-        self.y = y-(h/2)
+        self.x = x - (w / 2)
+        self.y = y - (h / 2)
         self.w = w
         self.h = h
     }

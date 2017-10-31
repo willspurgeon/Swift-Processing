@@ -113,6 +113,10 @@ public func background(r: Double, g: Double, b: Double) {
     addToCorrectOpList(Background(r: r, g: g, b: b))
 }
 
+public func background(grayScale colorValue: Double) {
+    addToCorrectOpList(Background(r: colorValue, g: colorValue, b: colorValue))
+}
+
 public func ellipse(x: Int, y: Int, w: Int, h: Int) {
     addToCorrectOpList(Ellipse(x: x, y: y, w: w, h: h))
 }
@@ -123,6 +127,10 @@ public func fill(r: Double, g: Double, b: Double) {
 
 public func stroke(r: Double, g: Double, b: Double) {
     addToCorrectOpList(Stroke(r: r, g: g, b: b, disabled: false))
+}
+
+public func stroke(grayScale colorValue: Double) {
+    addToCorrectOpList(Stroke(r: colorValue, g: colorValue, b: colorValue, disabled: false))
 }
 
 public func strokeWeight(_ weight: Double) {
@@ -167,6 +175,18 @@ public func triangle(x1: Double, y1: Double, x2: Double, y2: Double, x3: Double,
 
 public func antiAliasing(on: Bool) {
     addToCorrectOpList(Aliasing(shouldAntiAlias: on))
+}
+
+public func radians(degrees: Double) -> Double {
+    return (degrees * pi) / 180
+}
+
+public func degress(radians: Double) -> Double {
+    return (radians * 180) / pi
+}
+
+public func absoluteValue(of value: Double) -> Double {
+    return abs(value)
 }
 
 public enum JointType {
@@ -269,6 +289,10 @@ public func cursor(withStyle kind: CursorKind) {
     }
 }
 
+public func map(value: Double, inMin: Double, inMax: Double, outMin: Double, outMax: Double) -> Double {
+    return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin
+}
+
 public struct Vector: Equatable {
     public var x = 0.0
     public var y = 0.0
@@ -277,7 +301,7 @@ public struct Vector: Equatable {
     public static let zero = Vector(x: 0, y: 0, z: 0)
     
     //TODO: Create all remaining forms of operator overloads.
-    public init(x: Double, y: Double, z: Double) {
+    public init(x: Double = 0, y: Double = 0, z: Double = 0) {
         self.x = x
         self.y = y
         self.z = z
