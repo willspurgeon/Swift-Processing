@@ -22,8 +22,8 @@ class DrawingTests: XCTestCase {
         Enviroment.stroke = NSColor.black
         Enviroment.fill = NSColor.white
         Enviroment.strokeWeight = 0
-        Enviroment.jointType = .miterLineJoinStyle
-        Enviroment.capType = .roundLineCapStyle
+        Enviroment.jointType = .miter
+        Enviroment.capType = .round
     }
     
     func saveImage() {
@@ -37,7 +37,7 @@ class DrawingTests: XCTestCase {
         view.setNeedsDisplay(view.bounds)
         
         let url = Bundle(for: DrawingTests.self)
-        if let testImage = url.image(forResource: NSImage.Name(rawValue: "rectangleImage.tiff")) {
+        if let testImage = url.image(forResource: "rectangleImage.tiff") {
             XCTAssertEqual(view.image()?.tiffRepresentation, testImage.tiffRepresentation)
         } else {
             XCTFail("Could not load image")
@@ -49,7 +49,7 @@ class DrawingTests: XCTestCase {
         view.setNeedsDisplay(view.bounds)
         
         let url = Bundle(for: DrawingTests.self)
-        if let testImage = url.image(forResource: NSImage.Name(rawValue: "ellipseImage.tiff")) {
+        if let testImage = url.image(forResource: "ellipseImage.tiff") {
             XCTAssertEqual(view.image()?.tiffRepresentation, testImage.tiffRepresentation)
         } else {
             XCTFail("Could not load image")
@@ -61,7 +61,7 @@ class DrawingTests: XCTestCase {
         view.setNeedsDisplay(view.bounds)
         
         let url = Bundle(for: DrawingTests.self)
-        if let testImage = url.image(forResource: NSImage.Name(rawValue: "quadImage.tiff")) {
+        if let testImage = url.image(forResource: "quadImage.tiff") {
             XCTAssertEqual(view.image()?.tiffRepresentation, testImage.tiffRepresentation)
         } else {
             XCTFail("Could not load image")
@@ -73,7 +73,7 @@ class DrawingTests: XCTestCase {
         view.setNeedsDisplay(view.bounds)
         
         let url = Bundle(for: DrawingTests.self)
-        if let testImage = url.image(forResource: NSImage.Name(rawValue: "triangleImage.tiff")) {
+        if let testImage = url.image(forResource: "triangleImage.tiff") {
             XCTAssertEqual(view.image()?.tiffRepresentation, testImage.tiffRepresentation)
         } else {
             XCTFail("Could not load image")
@@ -85,7 +85,7 @@ class DrawingTests: XCTestCase {
         view.setNeedsDisplay(view.bounds)
         
         let url = Bundle(for: DrawingTests.self)
-        if let testImage = url.image(forResource: NSImage.Name(rawValue: "lineImage.tiff")) {
+        if let testImage = url.image(forResource: "lineImage.tiff") {
             XCTAssertEqual(view.image()?.tiffRepresentation, testImage.tiffRepresentation)
         } else {
             XCTFail("Could not load image")
@@ -97,7 +97,7 @@ class DrawingTests: XCTestCase {
         view.setNeedsDisplay(view.bounds)
         
         let url = Bundle(for: DrawingTests.self)
-        if let testImage = url.image(forResource: NSImage.Name(rawValue: "manyShapesImage.tiff")) {
+        if let testImage = url.image(forResource: "manyShapesImage.tiff") {
             XCTAssertEqual(view.image()?.tiffRepresentation, testImage.tiffRepresentation)
         } else {
             XCTFail("Could not load image")

@@ -14,11 +14,11 @@ struct StrokeCap: Drawable {
     init(capType: StrokeCapType) {
         switch capType {
         case .project:
-            cap = .buttLineCapStyle
+            cap = .butt
         case .round:
-            cap = .roundLineCapStyle
+            cap = .round
         case .square:
-            cap = .squareLineCapStyle
+            cap = .square
         }
     }
     

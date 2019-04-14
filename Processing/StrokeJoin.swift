@@ -14,11 +14,11 @@ struct StrokeJoin: Drawable {
     init(jointType: JointType) {
         switch jointType {
         case .bevel:
-            joint = .bevelLineJoinStyle
+            joint = .bevel
         case .miter:
-            joint = .miterLineJoinStyle
+            joint = .miter
         case .round:
-            joint = .roundLineJoinStyle
+            joint = .round
         }
     }
     
